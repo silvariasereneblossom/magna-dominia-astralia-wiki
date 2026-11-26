@@ -2680,7 +2680,7 @@ Nothing runs per tick: stages run on construction timers, effects are rows, fail
 | Orbital Ecosystem | a barren, molten, toxic or frozen body, no colony | 600 alloys, 60 components, 200 food | 300 | 3 cr | founds a habitat-like colony around the body |
 | Atmospheric Processor | a planet with an own colony | 500 alloys, 50 components, 200 gas | 360 | 3 cr, 1 gas | +3 housing and +10% growth on the colony below |
 | Gas Giant Stabiliser | a gas giant, no colony | 700 alloys, 80 components, 100 gas | 360 | 4 cr | a colonisable gas giant (`13 §6`): its habitat hook founds a habitat around the body |
-| Stellar Particle Accelerator | a star | 800 alloys, 120 components, 100 rare ore | 360 | 5 cr, 1 rare ore | +10% physics; 2% yearly failure, which ruins it |
+| Stellar Particle Accelerator | a star | 800 alloys, 120 components, 100 rare ore | 360 | 5 cr, 1 rare ore | +20% physics, each further one an empire finishes adding half of the one before (+10%, +5%: `stack` 0.5, `07 D278 §16`); 2% yearly failure, which ruins it |
 | Orbital Arcology | a planet of size 8–30, no colony | 900 alloys, 100 components, 200 goods | 420 | 5 cr | +6 housing and +2 amenities on its habitat |
 | Beacon Spire | a starbase of size ≥ 2 | 300 alloys, 30 components | 180 | 2 cr | a small hyperspace anchor: radius 3, holding corridors, no depth change |
 
@@ -2692,10 +2692,10 @@ Nothing runs per tick: stages run on construction timers, effects are rows, fail
 | Hyperspace Anchor | a starbase of size ≥ 4 | 1 × 2,500 alloys, 300 components, 200 rare ore | 720 | 15 cr, 2 components | radius 6: holds every corridor and lowers depth |
 | Shipyard Ring | a starbase of size ≥ 4 | 1 × 3,000 alloys, 400 components, 100 machine tools | 720 | 20 cr, 2 components | builds super-capitals; +2 yard slots; repair × 2 |
 | Mass Driver | a starbase of size ≥ 3 | 1 × 1,500 alloys, 200 components | 540 | 10 cr, 1 fuel | a linked pair's routes take 0.25 of their days; +5% freight |
-| Dyson Swarm | an O/B, A, F, G or K star; 2 per empire | 3 × 1,500 alloys, 150 components | 360 | 5 cr a stage | per stage +5% technician and +3% metallurgist output |
+| Dyson Swarm | an O/B, A, F, G or K star; known from the start (T5b, `07 D278 §16`) | six sections: 400 / 600 / 1,000 / 1,600 / 2,200 / 2,500 alloys and a tenth as many components | 240 / 240 / 300 / 360 / 360 / 360 | 2 / 3 / 5 / 8 / 10 / 12 cr | each section lands energy at the system's starbase market, times the star's luminosity: 40 / 60 / 120 / 230 / 350 / 400 a month (1,200 in all on a G star); sections two to six wait for Orbital Solar Arrays, Beamed Power, Stellar Collectors, Statite Engineering and Swarm Fabrication; finished, it is the Type I structure |
 | Strip-mine Engine | a barren, molten, toxic or frozen body of size 8–30, no colony | 2 × 1,200 alloys, 150 components, 50 machine tools | 360 | 6 cr (and 0.5 machine tools in the first stage) | per stage +8% miner output; 5% yearly decay |
 | Rare-ore Megabore | a molten body, no colony | 1 × 1,500 alloys, 200 components, 50 machine tools | 540 | 8 cr, 0.5 machine tools | +15% rare-ore (crystal) output |
-| Science Nexus | a starbase of size ≥ 4; 1 per empire | 2 × 2,000 alloys, 300 components, 200 rare ore | 540 | 15 cr a stage | +5% to each research field and +10% skill gain; a quantum-core upgrade |
+| Science Nexus | a starbase of size ≥ 4; 1 per empire | 2 × 2,000 alloys, 300 components, 200 rare ore | 540 | 15 cr a stage | +15% to each research field and +10% skill gain; a quantum-core upgrade (+10% physics) |
 
 ### Gigastructures (5)
 
@@ -2703,8 +2703,8 @@ Each gigastructure is one per empire, with long staged builds and large upkeep (
 
 | Structure | Placement | Stages × bill | Days a stage | Upkeep /30 d | Effect (`07 D82`) |
 |---|---|---|---|---|---|
-| Matrioshka Brain | a star | 3 × 4,000 alloys, 600 components, 400 rare ore | 720 | 30 cr (and 2 rare ore in the first stage) | +10% to each field per stage, then −5% tech cost and +5% build speed |
-| Dyson Sphere | an O/B, A, F, G or K star; requires and consumes the Dyson Swarm | 2 × 5,000 alloys, 500 components, 200 machine tools | 720 | 25 cr a stage | +20% technician and +15% metallurgist output per stage; the second stage dims the system: −15% growth on the system's own colonies |
+| Matrioshka Brain | a star | 3 × 4,000 alloys, 600 components, 400 rare ore | 720 | 30 cr (and 2 rare ore in the first stage) | +25% to each field per stage, then −10% tech cost and +5% build speed |
+| Dyson Sphere | an O/B, A, F, G or K star; 1 per empire; requires and consumes the finished Dyson Swarm | 3 × 5,000 alloys, 500 components, 200 machine tools | 720 | 25 cr a stage | each stage lands 8,000 energy a month at the system's starbase market, times the star's luminosity; the third closes it and cools the system's planets (habitability −20) until the Dyson Aperture upgrade (3,000 alloys, 600 components, 200 machine tools, 720 days; tier 6) gives it back; closed, it is the Type II structure |
 | Ringworld | an F, G or K star | 3 sections × 6,000 alloys, 600 components, 500 goods | 900 | 20 cr a section | a habitat around the star: +15 housing per section, +2 building slots in the first two, +5 amenities in the last |
 | Star Lifter | a star | 2 × 3,500 alloys, 500 components, 200 machine tools | 720 | 20 cr (and 1 machine tool in the first stage) | +20% gas per stage, +5% physics in the second |
 | Nicoll-Dyson Lance | a star; requires a Dyson Sphere in the system (not consumed) | 2 × 6,000 alloys, 800 components, 400 rare ore | 900 | 40 cr, 2 components a stage | a strategic strike across hyperspace (below) |
@@ -2753,11 +2753,11 @@ An empire's hub pair takes the Gateway jump when both hubs' systems hold a Gatew
 
 ### Technology and the Kardashev gates
 
-Every structure names its tech in `megastructures.json` (`tech`). Under the tech-tree rework, the Dyson Swarm is part of the gate to Kardashev Type I and the Dyson Sphere the gate to Type II; the Sphere's tech moves from tier 3 to tier 5, the Swarm's stays at tier 3; the works of tiers 6–7 are the path to Type III. The Lance's tech became `collapse_engineering` (Degenerative Collapse) (`07 D278`). A Kardashev type needs its structure for every empire (`07 D278`, call 8). See [progression.md](Design-Progression).
+Every structure names its tech in `megastructures.json` (`tech`). Under the tech-tree rework, the Dyson Swarm is part of the gate to Kardashev Type I and the Dyson Sphere the gate to Type II; the Sphere's tech moves from tier 3 to tier 5 (and waits for 210 known techs); the Swarm is known from the start and its sections climb a ladder of five techs to tier 3 (T5b, `07 D278 §16`); the works of tiers 6–7 are the path to Type III. The Lance's tech became `collapse_engineering` (Degenerative Collapse) (`07 D278`). A Kardashev type needs its structure for every empire (`07 D278`, call 8). See [progression.md](Design-Progression).
 
 ### The AI and megastructures
 
-S1 left the AI building no structures (`07 D79`). T2 (merged 2026-11-23) has the AI order great works: once a year, with none of its own under construction and its month's margin not negative, an AI empire orders the first work it knows whose first stage its markets hold `worksStock` (2) times over, with the treasury's credits and influence for it; the next Kardashev type's structure before the others; at the first of its eight largest starbases whose system takes it (`ai::works`, `07 D278` call 8). Which works it favours beyond the gate's structure waits for T3 (`DESIGN.md` change log).
+S1 left the AI building no structures (`07 D79`). T2 (merged 2026-11-23) has the AI order great works: once a year, with none of its own under construction and its month's margin not negative, an AI empire orders the first work it knows whose first stage its markets hold `worksStock` (2) times over, with the treasury's credits and influence for it; the next Kardashev type's structure before the others; at the first of its eight largest starbases whose system takes it (`ai::works`, `07 D278` call 8). After the gate's structure it orders a kind it holds none of before a kind it already holds (the owner, 2026-11-25, `07 D278 §16` call 20), and within each group the work its personality needs most (M19c, `07 D283`). T5b (`07 D278 §16` items 24 to 26): the reserve of twice the bill stays strict for what expansion spends (the colony ship's and the starbases' bills) and is met for the rest by what the empire holds and makes over the stage's build days; a Type 0 AI leaves its Swarm until it holds three colonies outside home (`worksColonies`); and an AI's half-built work does not start its next stage on its own: its plan orders each one under the same reserve, the type's own work first.
 
 ### Ownership
 
@@ -3001,7 +3001,7 @@ One daily step in both clocks (`07 D92`). In RTS, orders take effect on the next
 
 **Status:** in progress, as of 2026-11-25. Traditions, government, policies, edicts, eras I–III and the modifier system are built (M7); the tech tree rework is on track T, with T1 to T4 and T5a (hooks and bench rows) built; T5b (the Dyson line and the pace) waits for the owner's answers on five design points.
 
-Progression is how an empire changes what it is and what it can do over a 300-year game. Technology is an open tree of 399 techs climbing toward Kardashev Type III; traditions buy perks with unity and lead to ascension perks; authority, civics, policies and edicts set the rules of government; eras unlock systems as an empire grows. Every effect of all of these reaches the simulation through one path, the modifier system, so every number on screen can show the stack that made it.
+Progression is how an empire changes what it is and what it can do over a 300-year game. Technology is an open tree of 401 techs climbing toward Kardashev Type III; traditions buy perks with unity and lead to ascension perks; authority, civics, policies and edicts set the rules of government; eras unlock systems as an empire grows. Every effect of all of these reaches the simulation through one path, the modifier system, so every number on screen can show the stack that made it.
 
 ## How it works
 
@@ -3048,7 +3048,7 @@ No prerequisite sits in a higher tier, and there are no forks: nothing an empire
 
 All tier-0 techs are known at game start.
 
-**Counts.** 399 techs, 133 a field, distributed 2 / 18 / 22 / 24 / 20 / 18 / 16 / 13 over tiers 0–7. 49 are gated by deeds, and 4 are found rather than researched (reached by insight from salvage once T2 is built). No empire is meant to finish the tree in a 300-year game: a strong one reaches Type III around years 280–320 knowing about 80% of it (`01 §9.1`). Techs grant buildings, districts' extra caps, ship hulls and components, modifiers, policies and the great works.
+**Counts.** 401 techs (133 in physics and society, 135 in engineering since T5b's Dyson Swarms at tier 0 and Dyson Aperture at tier 6), distributed 7 / 54 / 66 / 72 / 60 / 54 / 49 / 39 over tiers 0–7. 51 are gated (49 by deeds; two by the number of techs known, `07 D278 §16`), and 4 are found rather than researched (reached by insight from salvage once T2 is built). No empire is meant to finish the tree in a 300-year game: a strong one reaches Type III around years 280–320 knowing about 80% of it (`01 §9.1`). Techs grant buildings, districts' extra caps, ship hulls and components, modifiers, policies and the great works.
 
 **Goals are the queue.** An empire keeps up to six goals in order. A field with no project takes the cheapest researchable tech of its own field on the way to the first goal that has one (a prerequisite or the goal itself; from an `any` group with none known, any of them). When the way holds a tech in a tier still shut, the field takes the cheapest researchable tech of the tier under the lowest shut one, so a goal opens its own tiers. With no such step, a field on Auto takes its cheapest researchable tech; with Auto off it waits and prompts. Every empire starts with the Hyperspace Drive as its first goal. `PickResearch` takes any researchable tech of the field at any time, and the field's banked points stay. Goals and picks are commands (`SetResearchGoals`, `PickResearch`) in both RTS and TB.
 
@@ -3057,7 +3057,7 @@ All tier-0 techs are known at game start.
 ```
 cost(tech) = base(tier) × (1 + 0.012 × techsKnown) × sprawlPenalty × empire.techCost
              × (1 − diffusion) / research.speed(category)
-base = [0, 110, 380, 2400, 4800, 10000, 22000, 50000][tier]
+base = [0, 110, 380, 4600, 4800, 10000, 22000, 50000][tier]
 ```
 
 The Hyperspace Drive carries an explicit cost of 150. `research.speed.<category>` divides the cost; it replaced the old draw weights, at a third of their values (`07 D278 §2`).
@@ -3186,7 +3186,7 @@ Era is per empire; the **galactic era** is the highest over all empires and driv
 | Unknown tech | Use to 50%, dismantle for more | 2026-11-21 | `07 D278 §15` call 7 |
 | The Dyson line | A basic Swarm known from the start; techs raise its enclosure; a full Sphere takes the star's whole output; a Dyson Aperture later; Type I is a full Swarm, Type II a closed Sphere; anchors and costs re-set to the pace | 2026-11-25 | `07 D278 §16` |
 | The AI and the great works | The AI builds the great works as part of development, triggered by having the resources; a type needs its structure for every empire | 2026-11-23 | `07 D278 §15` call 8 |
-| Track T's cost calls | Tier 3 at twice its first cost (base 2,400, tier 4 4,800, tier 5 10,000), replacing `07 D278 §6`'s starting base of 1,200 / 3,400 / 9,000; energy anchors 45 / 2,000 / 50,000 / 1,000,000; idle bank capped | 2026-11-23 | `07 D278 §15` |
+| Track T's cost calls | Tier 3 at twice its first cost (base 2,400, tier 4 4,800, tier 5 10,000), replacing `07 D278 §6`'s starting base of 1,200 / 3,400 / 9,000; energy anchors 45 / 2,000 / 50,000 / 1,000,000 (**T5b, `07 D278 §16`:** tier 3 at 4,600, carrying Type I's timing, and the anchors 45 / 1,200 / 15,000 / 1,000,000, set from the Dyson line's yields); idle bank capped | 2026-11-23 | `07 D278 §15` |
 | Ethics model | Stellaris's eight ethics (replaces `01 §9.3`'s Collectivist–Individualist axis with Authoritarian–Egalitarian in CV1) | 2026-11-16 | `07 D230` call 1 |
 | Ascension paths | Psionic is the Singularity path; Synthetic after Automata contact; Biological with genemodding; new capstones; M19b leaves M19 (replaces `01 §9.8`'s three generic paths) | 2026-11-23 | `07 D283` calls 2–3 |
 | Election intervals | 5 years for democracies, 10 for oligarchic councils (replaces `01 §9.5`'s 10 and 20) | 2026-11-18 | `07 D241` call 5 |

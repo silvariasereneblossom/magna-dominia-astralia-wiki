@@ -2,7 +2,7 @@
 
 **Status:** in progress, as of 2026-11-25. Traditions, government, policies, edicts, eras I–III and the modifier system are built (M7); the tech tree rework is on track T, with T1 to T4 and T5a (hooks and bench rows) built; T5b (the Dyson line and the pace) waits for the owner's answers on five design points.
 
-Progression is how an empire changes what it is and what it can do over a 300-year game. Technology is an open tree of 399 techs climbing toward Kardashev Type III; traditions buy perks with unity and lead to ascension perks; authority, civics, policies and edicts set the rules of government; eras unlock systems as an empire grows. Every effect of all of these reaches the simulation through one path, the modifier system, so every number on screen can show the stack that made it.
+Progression is how an empire changes what it is and what it can do over a 300-year game. Technology is an open tree of 401 techs climbing toward Kardashev Type III; traditions buy perks with unity and lead to ascension perks; authority, civics, policies and edicts set the rules of government; eras unlock systems as an empire grows. Every effect of all of these reaches the simulation through one path, the modifier system, so every number on screen can show the stack that made it.
 
 ## How it works
 
@@ -49,7 +49,7 @@ No prerequisite sits in a higher tier, and there are no forks: nothing an empire
 
 All tier-0 techs are known at game start.
 
-**Counts.** 399 techs, 133 a field, distributed 2 / 18 / 22 / 24 / 20 / 18 / 16 / 13 over tiers 0–7. 49 are gated by deeds, and 4 are found rather than researched (reached by insight from salvage once T2 is built). No empire is meant to finish the tree in a 300-year game: a strong one reaches Type III around years 280–320 knowing about 80% of it (`01 §9.1`). Techs grant buildings, districts' extra caps, ship hulls and components, modifiers, policies and the great works.
+**Counts.** 401 techs (133 in physics and society, 135 in engineering since T5b's Dyson Swarms at tier 0 and Dyson Aperture at tier 6), distributed 7 / 54 / 66 / 72 / 60 / 54 / 49 / 39 over tiers 0–7. 51 are gated (49 by deeds; two by the number of techs known, `07 D278 §16`), and 4 are found rather than researched (reached by insight from salvage once T2 is built). No empire is meant to finish the tree in a 300-year game: a strong one reaches Type III around years 280–320 knowing about 80% of it (`01 §9.1`). Techs grant buildings, districts' extra caps, ship hulls and components, modifiers, policies and the great works.
 
 **Goals are the queue.** An empire keeps up to six goals in order. A field with no project takes the cheapest researchable tech of its own field on the way to the first goal that has one (a prerequisite or the goal itself; from an `any` group with none known, any of them). When the way holds a tech in a tier still shut, the field takes the cheapest researchable tech of the tier under the lowest shut one, so a goal opens its own tiers. With no such step, a field on Auto takes its cheapest researchable tech; with Auto off it waits and prompts. Every empire starts with the Hyperspace Drive as its first goal. `PickResearch` takes any researchable tech of the field at any time, and the field's banked points stay. Goals and picks are commands (`SetResearchGoals`, `PickResearch`) in both RTS and TB.
 
@@ -58,7 +58,7 @@ All tier-0 techs are known at game start.
 ```
 cost(tech) = base(tier) × (1 + 0.012 × techsKnown) × sprawlPenalty × empire.techCost
              × (1 − diffusion) / research.speed(category)
-base = [0, 110, 380, 2400, 4800, 10000, 22000, 50000][tier]
+base = [0, 110, 380, 4600, 4800, 10000, 22000, 50000][tier]
 ```
 
 The Hyperspace Drive carries an explicit cost of 150. `research.speed.<category>` divides the cost; it replaced the old draw weights, at a third of their values (`07 D278 §2`).
@@ -187,7 +187,7 @@ Era is per empire; the **galactic era** is the highest over all empires and driv
 | Unknown tech | Use to 50%, dismantle for more | 2026-11-21 | `07 D278 §15` call 7 |
 | The Dyson line | A basic Swarm known from the start; techs raise its enclosure; a full Sphere takes the star's whole output; a Dyson Aperture later; Type I is a full Swarm, Type II a closed Sphere; anchors and costs re-set to the pace | 2026-11-25 | `07 D278 §16` |
 | The AI and the great works | The AI builds the great works as part of development, triggered by having the resources; a type needs its structure for every empire | 2026-11-23 | `07 D278 §15` call 8 |
-| Track T's cost calls | Tier 3 at twice its first cost (base 2,400, tier 4 4,800, tier 5 10,000), replacing `07 D278 §6`'s starting base of 1,200 / 3,400 / 9,000; energy anchors 45 / 2,000 / 50,000 / 1,000,000; idle bank capped | 2026-11-23 | `07 D278 §15` |
+| Track T's cost calls | Tier 3 at twice its first cost (base 2,400, tier 4 4,800, tier 5 10,000), replacing `07 D278 §6`'s starting base of 1,200 / 3,400 / 9,000; energy anchors 45 / 2,000 / 50,000 / 1,000,000 (**T5b, `07 D278 §16`:** tier 3 at 4,600, carrying Type I's timing, and the anchors 45 / 1,200 / 15,000 / 1,000,000, set from the Dyson line's yields); idle bank capped | 2026-11-23 | `07 D278 §15` |
 | Ethics model | Stellaris's eight ethics (replaces `01 §9.3`'s Collectivist–Individualist axis with Authoritarian–Egalitarian in CV1) | 2026-11-16 | `07 D230` call 1 |
 | Ascension paths | Psionic is the Singularity path; Synthetic after Automata contact; Biological with genemodding; new capstones; M19b leaves M19 (replaces `01 §9.8`'s three generic paths) | 2026-11-23 | `07 D283` calls 2–3 |
 | Election intervals | 5 years for democracies, 10 for oligarchic councils (replaces `01 §9.5`'s 10 and 20) | 2026-11-18 | `07 D241` call 5 |
