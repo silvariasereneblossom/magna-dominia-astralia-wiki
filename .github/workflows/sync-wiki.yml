@@ -1,0 +1,31 @@
+# Mirrors wiki/ to this repo's GitHub Wiki. The wiki must exist first: create its first page once in the web UI.
+name: sync-wiki
+
+on:
+  push:
+    branches: [main]
+    paths: ["wiki/**", ".github/workflows/sync-wiki.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}.wiki
+          path: wiki-checkout
+      - name: Mirror wiki/ into the GitHub Wiki
+        run: |
+          find wiki-checkout -maxdepth 1 -name '*.md' -delete
+          cp wiki/*.md wiki-checkout/
+          cd wiki-checkout
+          git add -A
+          if git diff --cached --quiet; then echo "wiki unchanged"; exit 0; fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -m "auto-sync from wiki/@${GITHUB_SHA::7}"
+          git push
