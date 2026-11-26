@@ -26,7 +26,7 @@ and consistency checks. Maintenance follows the protocols in `protocols/`, adapt
 
 ## GitHub Wiki mirror
 
-`.github/workflows/sync-wiki.yml` mirrors this folder to the repository's GitHub Wiki on every push to `main` that touches it. `.github/scripts/wiki_sync.py` flattens the folders into page names (`design/combat.md` becomes `Design-Combat`), rewrites links, skips pages marked `<!-- INTERNAL ONLY -->` (session logs), and generates `Design-Document` (all design pages as one document) and the sidebar. The Wiki is read-only output: edit the files here. Preview locally with `python .github/scripts/wiki_sync.py <some empty folder>`.
+`.github/workflows/sync-wiki.yml` mirrors this folder to the repository's GitHub Wiki on every push to `main` that touches it. `.github/scripts/wiki_sync.py` flattens the folders into page names (`design/combat.md` becomes `Design-Combat`), rewrites links, skips pages marked `<!-- INTERNAL ONLY -->` (session logs), and generates `Design-Document` (all design pages as one document) and the sidebar. The same workflow also builds a public copy (`--public .github/wiki-public.json`: links into this private repo become plain labels, the test host's name and paths are replaced, and the build refuses to publish a text on the deny list) and pushes it to the public repository `magna-dominia-astralia-wiki`, whose own Action mirrors it to that repository's Wiki. The Wiki is read-only output: edit the files here. Preview locally with `python .github/scripts/wiki_sync.py <some empty folder>`.
 
 ## Protocols
 
