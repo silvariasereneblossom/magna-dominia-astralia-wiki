@@ -2627,7 +2627,7 @@ The strategic clock pauses while the player's battle waits, in both clocks; the 
 
 **Status:** built, as of 2026-11-23. The shared model with 8 kilo- and 8 megastructures and ruins in S1, the 5 gigastructures and giga ruins in S2 (both 2026-11-14), Gateway trade links in M19a and the AI's orders for great works in T2 (both 2026-11-23); the AI megastructure advisor (M19c) and a new roster of great works are still to come.
 
-Megastructures are large staged constructions in three tiers, kilo, mega and giga, drawn from the Stellaris mod Gigastructural Engineering. Twenty-one of them are data in `megastructures.json`: they place by rules on stars, bodies or starbases, draw each stage's bill from their own system's markets like any construction, and act through modifier rows and a few code hooks (corridor anchors, yards, mass-driver links, habitats, the Gateway, the Nicoll-Dyson Lance). Ruined structures lie mostly in deep space and the abyss, guarded by automata, and can be restored at a quarter of their cost.
+Megastructures are large staged constructions in three tiers, kilo, mega and giga (names and tiers under revision as the great works get their own identities). Twenty-one of them are data in `megastructures.json`: they place by rules on stars, bodies or starbases, draw each stage's bill from their own system's markets like any construction, and act through modifier rows and a few code hooks (corridor anchors, yards, mass-driver links, habitats, the Gateway, the Nicoll-Dyson Lance). Ruined structures lie mostly in deep space and the abyss, guarded by automata, and can be restored at a quarter of their cost.
 
 ## How it works
 
@@ -2771,7 +2771,7 @@ Orders, stages and restorations are constructions and commands that resolve on t
 
 | Decision | What was decided | Date | Source |
 |---|---|---|---|
-| Set and reference | The themed set, looking hard at Gigastructural Engineering | 2026-11-13 | `07 D70` |
+| Set | The themed set of kilo-, mega- and gigastructures (its first names are being replaced with the game's own) | 2026-11-13 | `07 D70` |
 | Scale | Up to gigastructures in MVP; replaces `01 §9.8`'s 1.0 list (Orbital Ring, Dyson Swarm, Science Nexus with +25% skill gain, Habitat) | 2026-11-13 | `07 D70` |
 | Ruins | Deep-space rewards, sometimes in normal space as in Stellaris | 2026-11-13 | `07 D70` |
 | The model | One data model; effects as modifier rows; hooks opted into by data; stages as constructions | 2026-11-14 | `07 D78` |
