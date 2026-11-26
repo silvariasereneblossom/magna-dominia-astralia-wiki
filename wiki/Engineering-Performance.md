@@ -69,7 +69,7 @@ Read plainly:
 | Allied sensor cover read through a mask, not rescanned (M18a) | avoided doubling the sensor pass (845 against 420.6 ms a year on the storm row) | `DESIGN.md` change log, 2026-11-22 |
 | AI plans run inline between ticks, budgeted in candidate evaluations | a plan costs 15–50 µs, below a thread pool's round trip | `07 D55` |
 | The design-scale Huge row held at about 750 colonies by a cap in `tools` | the row measures the simulation, not how far a peaceful AI game happens to expand | `DESIGN.md` change log, 2026-11-24 |
-| Per-dispatch Gateway flags and an Exchange-leg cache | exact; built alongside the cap fix, with no separate before-and-after figure recorded | `00-status`, 2026-11-24 |
+| Per-dispatch Hyperspace Lock flags and an Exchange-leg cache | exact; built alongside the cap fix, with no separate before-and-after figure recorded | `00-status`, 2026-11-24 |
 
 ### Attempts that did not pay
 

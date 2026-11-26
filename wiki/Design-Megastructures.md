@@ -1,18 +1,18 @@
 # Megastructures
 
-**Status:** built, as of 2026-11-23. The shared model with 8 kilo- and 8 megastructures and ruins in S1, the 5 gigastructures and giga ruins in S2 (both 2026-11-14), Gateway trade links in M19a and the AI's orders for great works in T2 (both 2026-11-23); the AI megastructure advisor (M19c) and a new roster of great works are still to come.
+**Status:** built, as of 2026-11-26. The shared model with 8 Prima and 8 Maiora works and ruins in S1, the 5 Magna works and their ruins in S2 (both 2026-11-14), Hyperspace Lock trade links in M19a and the AI's orders for great works in T2 (both 2026-11-23); eleven works took the game's own names on 2026-11-26; the AI megastructure advisor (M19c) and a new roster of great works are still to come.
 
-Megastructures are large staged constructions in three tiers, kilo, mega and giga (names and tiers under revision as the great works get their own identities). Twenty-one of them are data in `megastructures.json`: they place by rules on stars, bodies or starbases, draw each stage's bill from their own system's markets like any construction, and act through modifier rows and a few code hooks (corridor anchors, yards, mass-driver links, habitats, the Gateway, the Nicoll-Dyson Lance). Ruined structures lie mostly in deep space and the abyss, guarded by automata, and can be restored at a quarter of their cost.
+Megastructures, the great works, are large staged constructions in three scales: Prima, Maiora and Magna Opera Astralia. The first set was inspired by the Stellaris mod Gigastructural Engineering & More; the names and identities here are the game's own. Twenty-one of them are data in `megastructures.json`: they place by rules on stars, bodies or starbases, draw each stage's bill from their own system's markets like any construction, and act through modifier rows and a few code hooks (corridor anchors, yards, mass-driver links, habitats, the Hyperspace Lock, the Nicoll-Dyson Lance). Ruined structures lie mostly in deep space and the abyss, guarded by automata, and can be restored at a quarter of their cost.
 
 ## How it works
 
 ### The shared model
 
-One data-driven model serves every tier (`13 §6`, `07 D78`):
+One data-driven model serves every scale (`13 §6`, `07 D78`):
 
 | Part | Rule |
 |---|---|
-| Tier | kilo, mega or giga; tera is left to mods (`13 §6`) |
+| Scale | Prima, Maiora or Magna Opera Astralia (`tier` `kilo`, `mega` or `giga` in the content for now); anything larger is left to mods (`13 §6`) |
 | Placement | on a star, a body or the system's starbase: body kinds, classes and size; the body's colony (any, none or own); star classes; the cell's depth; the starbase's least size; per-system and per-empire limits; one structure a body (`07 D78`) |
 | Prerequisites | `requires` another of the builder's structures, active in the same system; `consumes` replaces it on completion (`07 D81`) |
 | Stages | each stage and upgrade has a bill, days, upkeep (credits and commodities) and modifier rows (`07 D78`) |
@@ -38,7 +38,7 @@ Nothing runs per tick: stages run on construction timers, effects are rows, fail
 
 | Hook | What it does (`07 D78`, `D81`) |
 |---|---|
-| `gateway` | crossing days; the Gateway keeps M8c's `gate` column, so hyperspace is unchanged |
+| `gateway` | crossing days; the Hyperspace Lock keeps M8c's `gate` column, so hyperspace is unchanged |
 | `anchor` (radius, depth) | caps depth at the Chebyshev distance less the radius; drift skips cells within the radius; holds every corridor in reach, not only its owner's |
 | `yard` (class, slots, repair) | on the system's starbase |
 | `driver` (fraction) | a new Mass Driver links to the empire's oldest unlinked driver in another system; routes between the two systems take the fraction of their days |
@@ -46,45 +46,67 @@ Nothing runs per tick: stages run on construction timers, effects are rows, fail
 | `batteries` | adds batteries to the system's starbase |
 | `lance` | the Nicoll-Dyson Lance's strike (below) |
 
-### Kilostructures (8)
+### Prima Opera Astralia (8)
 
 | Structure | Placement | Bill | Days | Upkeep /30 d | Effect |
 |---|---|---|---|---|---|
-| Asteroid Manufactory | an asteroid belt, no colony | 400 alloys, 40 components | 240 | 3 cr | +5% artisan output |
-| Asteroid Battery | an asteroid belt, no colony | 500 alloys, 60 components | 240 | 2 cr, 0.5 components | +0.05 piracy security and 4 batteries on the system's starbase |
-| Orbital Ecosystem | a barren, molten, toxic or frozen body, no colony | 600 alloys, 60 components, 200 food | 300 | 3 cr | founds a habitat-like colony around the body |
+| Belt Foundry | an asteroid belt, no colony | 400 alloys, 40 components | 240 | 3 cr | +5% artisan output |
+| Belt Redoubt | an asteroid belt, no colony | 500 alloys, 60 components | 240 | 2 cr, 0.5 components | +0.05 piracy security and 4 batteries on the system's starbase |
+| Hanging Garden | a barren, molten, toxic or frozen body, no colony | 600 alloys, 60 components, 200 food | 300 | 3 cr | founds a habitat-like colony around the body |
 | Atmospheric Processor | a planet with an own colony | 500 alloys, 50 components, 200 gas | 360 | 3 cr, 1 gas | +3 housing and +10% growth on the colony below |
-| Gas Giant Stabiliser | a gas giant, no colony | 700 alloys, 80 components, 100 gas | 360 | 4 cr | a colonisable gas giant (`13 §6`): its habitat hook founds a habitat around the body |
-| Stellar Particle Accelerator | a star | 800 alloys, 120 components, 100 rare ore | 360 | 5 cr, 1 rare ore | +20% physics, each further one an empire finishes adding half of the one before (+10%, +5%: `stack` 0.5, `07 D278 §16`); 2% yearly failure, which ruins it |
-| Orbital Arcology | a planet of size 8–30, no colony | 900 alloys, 100 components, 200 goods | 420 | 5 cr | +6 housing and +2 amenities on its habitat |
+| Cloudhold | a gas giant, no colony | 700 alloys, 80 components, 100 gas | 360 | 4 cr | a colonisable gas giant (`13 §6`): its habitat hook founds a habitat around the body |
+| Coronal Collider | a star | 800 alloys, 120 components, 100 rare ore | 360 | 5 cr, 1 rare ore | +20% physics, each further one an empire finishes adding half of the one before (+10%, +5%: `stack` 0.5, `07 D278 §16`); 2% yearly failure, which ruins it |
+| Crown City | a planet of size 8–30, no colony | 900 alloys, 100 components, 200 goods | 420 | 5 cr | +6 housing and +2 amenities on its habitat |
 | Beacon Spire | a starbase of size ≥ 2 | 300 alloys, 30 components | 180 | 2 cr | a small hyperspace anchor: radius 3, holding corridors, no depth change |
 
-### Megastructures (8)
+### Maiora Opera Astralia (8)
 
 | Structure | Placement | Stages × bill | Days a stage | Upkeep /30 d | Effect |
 |---|---|---|---|---|---|
-| Gateway | a starbase of size ≥ 6, charted space (depth 0) | 1 × 5,000 alloys, 800 components | 1,080 | 30 cr, 4 components | fleet crossings between Gateways (`01 §2.1`); trade shortcut (M19a, below) |
+| Hyperspace Lock | a starbase of size ≥ 6, charted space (depth 0) | 1 × 5,000 alloys, 800 components | 1,080 | 30 cr, 4 components | fleet crossings between Hyperspace Locks (`01 §2.1`); trade shortcut (M19a, below) |
 | Hyperspace Anchor | a starbase of size ≥ 4 | 1 × 2,500 alloys, 300 components, 200 rare ore | 720 | 15 cr, 2 components | radius 6: holds every corridor and lowers depth |
 | Shipyard Ring | a starbase of size ≥ 4 | 1 × 3,000 alloys, 400 components, 100 machine tools | 720 | 20 cr, 2 components | builds super-capitals; +2 yard slots; repair × 2 |
 | Mass Driver | a starbase of size ≥ 3 | 1 × 1,500 alloys, 200 components | 540 | 10 cr, 1 fuel | a linked pair's routes take 0.25 of their days; +5% freight |
 | Dyson Swarm | an O/B, A, F, G or K star; known from the start (T5b, `07 D278 §16`) | six sections: 400 / 600 / 1,000 / 1,600 / 2,200 / 2,500 alloys and a tenth as many components | 240 / 240 / 300 / 360 / 360 / 360 | 2 / 3 / 5 / 8 / 10 / 12 cr | each section lands energy at the system's starbase market, times the star's luminosity: 40 / 60 / 120 / 230 / 350 / 400 a month (1,200 in all on a G star); sections two to six wait for Orbital Solar Arrays, Beamed Power, Stellar Collectors, Statite Engineering and Swarm Fabrication; finished, it is the Type I structure |
-| Strip-mine Engine | a barren, molten, toxic or frozen body of size 8–30, no colony | 2 × 1,200 alloys, 150 components, 50 machine tools | 360 | 6 cr (and 0.5 machine tools in the first stage) | per stage +8% miner output; 5% yearly decay |
-| Rare-ore Megabore | a molten body, no colony | 1 × 1,500 alloys, 200 components, 50 machine tools | 540 | 8 cr, 0.5 machine tools | +15% rare-ore (crystal) output |
-| Science Nexus | a starbase of size ≥ 4; 1 per empire | 2 × 2,000 alloys, 300 components, 200 rare ore | 540 | 15 cr a stage | +15% to each research field and +10% skill gain; a quantum-core upgrade (+10% physics) |
+| World Quarry | a barren, molten, toxic or frozen body of size 8–30, no colony | 2 × 1,200 alloys, 150 components, 50 machine tools | 360 | 6 cr (and 0.5 machine tools in the first stage) | per stage +8% miner output; 5% yearly decay |
+| Core Auger | a molten body, no colony | 1 × 1,500 alloys, 200 components, 50 machine tools | 540 | 8 cr, 0.5 machine tools | +15% rare-ore (crystal) output |
+| Athenaeum | a starbase of size ≥ 4; 1 per empire | 2 × 2,000 alloys, 300 components, 200 rare ore | 540 | 15 cr a stage | +15% to each research field and +10% skill gain; a quantum-core upgrade (+10% physics) |
 
-### Gigastructures (5)
+### Magna Opera Astralia (5)
 
-Each gigastructure is one per empire, with long staged builds and large upkeep (`13 §6`, `07 D82`).
+Each Magna work is one per empire, with long staged builds and large upkeep (`13 §6`, `07 D82`).
 
 | Structure | Placement | Stages × bill | Days a stage | Upkeep /30 d | Effect (`07 D82`) |
 |---|---|---|---|---|---|
 | Matrioshka Brain | a star | 3 × 4,000 alloys, 600 components, 400 rare ore | 720 | 30 cr (and 2 rare ore in the first stage) | +25% to each field per stage, then −10% tech cost and +5% build speed |
 | Dyson Sphere | an O/B, A, F, G or K star; 1 per empire; requires and consumes the finished Dyson Swarm | 3 × 5,000 alloys, 500 components, 200 machine tools | 720 | 25 cr a stage | each stage lands 8,000 energy a month at the system's starbase market, times the star's luminosity; the third closes it and cools the system's planets (habitability −20) until the Dyson Aperture upgrade (3,000 alloys, 600 components, 200 machine tools, 720 days; tier 6) gives it back; closed, it is the Type II structure |
 | Ringworld | an F, G or K star | 3 sections × 6,000 alloys, 600 components, 500 goods | 900 | 20 cr a section | a habitat around the star: +15 housing per section, +2 building slots in the first two, +5 amenities in the last |
-| Star Lifter | a star | 2 × 3,500 alloys, 500 components, 200 machine tools | 720 | 20 cr (and 1 machine tool in the first stage) | +20% gas per stage, +5% physics in the second |
+| Sun Dredge | a star | 2 × 3,500 alloys, 500 components, 200 machine tools | 720 | 20 cr (and 1 machine tool in the first stage) | +20% gas per stage, +5% physics in the second |
 | Nicoll-Dyson Lance | a star; requires a Dyson Sphere in the system (not consumed) | 2 × 6,000 alloys, 800 components, 400 rare ore | 900 | 40 cr, 2 components a stage | a strategic strike across hyperspace (below) |
 
-Placement, bills, days and upkeep are from `data/content/megastructures.json`; the commodity names are E1's (parts became components, crystal rare ore, machinery machine tools; `07 D57`). `07 D79` gives the S1 ranges as kilostructures 300–900 alloys, 30–120 components, 180–420 days, 2–5 credits upkeep, and megastructures 1,200–3,000 alloys and 150–400 components a stage, 360–720 days a stage, 6–20 credits upkeep. Effects are first guesses for balance passes (`07 D79`, `D82`).
+Placement, bills, days and upkeep are from `data/content/megastructures.json`; the commodity names are E1's (parts became components, crystal rare ore, machinery machine tools; `07 D57`). `07 D79` gives the S1 ranges as Prima works 300–900 alloys, 30–120 components, 180–420 days, 2–5 credits upkeep, and Maiora works 1,200–3,000 alloys and 150–400 components a stage, 360–720 days a stage, 6–20 credits upkeep. Effects are first guesses for balance passes (`07 D79`, `D82`).
+
+### The game's own names (2026-11-26)
+
+Eleven works and five techs carry the game's own names (the owner's calls of 2026-11-26, `07 D292`). Only the display names changed: every id in `megastructures.json` and `techs.json` is kept, so saves, mods and sprites are untouched. Older decisions and milestone notes use the earlier names.
+
+| Id | Earlier name | Name |
+|---|---|---|
+| `science_nexus` | Science Nexus | **Athenaeum** |
+| `gateway` | Gateway | **Hyperspace Lock** |
+| `asteroid_manufactory` | Asteroid Manufactory | **Belt Foundry** |
+| `asteroid_battery` | Asteroid Battery | **Belt Redoubt** |
+| `orbital_ecosystem` | Orbital Ecosystem | **Hanging Garden** |
+| `gas_giant_stabiliser` | Gas Giant Stabiliser | **Cloudhold** |
+| `stellar_particle_accelerator` | Stellar Particle Accelerator | **Coronal Collider** |
+| `orbital_arcology` | Orbital Arcology | **Crown City** |
+| `strip_mine_engine` | Strip-mine Engine | **World Quarry** |
+| `crystal_megabore` | Rare-ore Megabore | **Core Auger** |
+| `star_lifter` | Star Lifter | **Sun Dredge** |
+
+Techs: Gateway Theory, Gateway Networks and Gateway Lattice became **Lock Theory**, **Lock Networks** and **Lock Lattice**; Zero-Point Power became **Vacuum Power**; Megaengineering became **Megascale Engineering**.
+
+The three scales are written Prima, Maiora and Magna Opera Astralia; the content's `tier` field still reads `kilo`, `mega` and `giga` until `07 D277`'s first phase renames it.
 
 ### The Nicoll-Dyson Lance
 
@@ -106,7 +128,7 @@ The Lance has no ruins (`07 D81`).
 
 ### Failure and decay
 
-A structure with a `failure` arms a yearly timer at a year plus its row mod 360; the roll is a pure function of `(seed, row, year)` (`07 D78`). Failure ruins it: its rows, upkeep and hooks go, and the row stays, unowned. Decay costs the top stage; a one-stage structure falls to ruin (`07 D78`). The built cases are the Stellar Particle Accelerator (2% a year, ruin) and the Strip-mine Engine (5% a year, decay). A fixture gave 202 failures in 10,000 structure-years at 2% (`05 S1`).
+A structure with a `failure` arms a yearly timer at a year plus its row mod 360; the roll is a pure function of `(seed, row, year)` (`07 D78`). Failure ruins it: its rows, upkeep and hooks go, and the row stays, unowned. Decay costs the top stage; a one-stage structure falls to ruin (`07 D78`). The built cases are the Coronal Collider (2% a year, ruin) and the World Quarry (5% a year, decay). A fixture gave 202 failures in 10,000 structure-years at 2% (`05 S1`).
 
 ### Ruins
 
@@ -114,17 +136,17 @@ Galaxy generation scatters ruins, seed-hashed so no game stream moves (`07 D78`,
 
 | Rule | Value |
 |---|---|
-| Kilo and mega ruins | `perSystem` 0.06 × systems; `deepShare` 0.8 in cells of depth `deepMin` 6 or more (for kinds whose depth range reaches that), the rest on an eligible star or body of a system with no home |
-| Giga ruins | `gigaPerSystem` 0.006 × systems; `gigaDeepShare` 0.8 in cells of depth `abyssMin` 10 or more |
+| Prima and Maiora ruins | `perSystem` 0.06 × systems; `deepShare` 0.8 in cells of depth `deepMin` 6 or more (for kinds whose depth range reaches that), the rest on an eligible star or body of a system with no home |
+| Magna ruins | `gigaPerSystem` 0.006 × systems; `gigaDeepShare` 0.8 in cells of depth `abyssMin` 10 or more |
 | Deep ruin | a deep site of its own kind: the first fleet in meets automata like a cache, the next claims it |
 | System ruin | known once its system is surveyed; needs no claim |
 | Restoration | a construction ship (`RestoreRuin`) loads `restore` 0.25 of every stage's bill at its system's own starbase market and carries it; the restoration takes the same share of the days, and the structure comes back complete |
 
-Medium seeds 1–3 gave 23, 24 and 23 ruins, of which 19, 21 and 21 lie at depth 6 or more, and 2, 2 and 1 giga ruins, all at depth 10 or more (`05 S1`, `05 S2`). Switching a structure off removes it from building and from generated ruins (`05 S1`). Deep space and its depth bands are on [galaxy-and-hyperspace.md](Design-Galaxy-and-hyperspace).
+Medium seeds 1–3 gave 23, 24 and 23 ruins, of which 19, 21 and 21 lie at depth 6 or more, and 2, 2 and 1 Magna ruins, all at depth 10 or more (`05 S1`, `05 S2`). Switching a structure off removes it from building and from generated ruins (`05 S1`). Deep space and its depth bands are on [galaxy-and-hyperspace.md](Design-Galaxy-and-hyperspace).
 
-### Gateway trade links (M19a)
+### Hyperspace Lock trade links (M19a)
 
-An empire's hub pair takes the Gateway jump when both hubs' systems hold a Gateway it may use (its own, or an open-borders partner's) and the jump is quicker than the pair's route: the jump's days, no piracy, all cargo landed, closed by a blockade at either gate system. It is derived at route time, with no state, no save bump and no field rebuild; pact routes and the Galactic Exchange's legs still fly (`07 D283`, owner's call 1A; merged 2026-11-23 per `00-status.md`). The Mass Driver is the other structure trade reads (`07 D78`). See [trade-and-logistics.md](Design-Trade-and-logistics).
+An empire's hub pair takes the Hyperspace Lock jump when both hubs' systems hold a Hyperspace Lock it may use (its own, or an open-borders partner's) and the jump is quicker than the pair's route: the jump's days, no piracy, all cargo landed, closed by a blockade at either gate system. It is derived at route time, with no state, no save bump and no field rebuild; pact routes and the Galactic Exchange's legs still fly (`07 D283`, owner's call 1A; merged 2026-11-23 per `00-status.md`). The Mass Driver is the other structure trade reads (`07 D78`). See [trade-and-logistics.md](Design-Trade-and-logistics).
 
 ### Technology and the Kardashev gates
 
@@ -146,32 +168,34 @@ Orders, stages and restorations are constructions and commands that resolve on t
 
 | Decision | What was decided | Date | Source |
 |---|---|---|---|
-| Set | The themed set of kilo-, mega- and gigastructures (its first names are being replaced with the game's own) | 2026-11-13 | `07 D70` |
-| Scale | Up to gigastructures in MVP; replaces `01 §9.8`'s 1.0 list (Orbital Ring, Dyson Swarm, Science Nexus with +25% skill gain, Habitat) | 2026-11-13 | `07 D70` |
+| Set | The themed set of great works in three scales (its first names were replaced with the game's own on 2026-11-26) | 2026-11-13 | `07 D70` |
+| Scale | Up to the Magna scale in MVP; replaces `01 §9.8`'s 1.0 list (Orbital Ring, Dyson Swarm, Athenaeum with +25% skill gain, Habitat) | 2026-11-13 | `07 D70` |
 | Ruins | Deep-space rewards, sometimes in normal space as in Stellaris | 2026-11-13 | `07 D70` |
 | The model | One data model; effects as modifier rows; hooks opted into by data; stages as constructions | 2026-11-14 | `07 D78` |
 | Anchor reach | A Hyperspace Anchor holds every corridor in its radius, not only its owner's | 2026-11-14 | `07 D78` |
 | Restoration | A construction ship carries 25% of the stages' bill from its system's starbase market; deep ruins claimed by beating automata | 2026-11-14 | `07 D78` |
 | Driver link | A new Mass Driver auto-links to the empire's oldest unlinked driver; the pair's routes take a quarter of the days | 2026-11-14 | `07 D78`, `D79` |
-| Cuts | The Strip-mine Engine's shrinking (it decays instead) and star ageing; the Ringworld kept its three sections | 2026-11-14 | `07 D79`, `D82` |
+| Cuts | The World Quarry's shrinking (it decays instead) and star ageing; the Ringworld kept its three sections | 2026-11-14 | `07 D79`, `D82` |
 | Sphere and Swarm | The Sphere needs and replaces the Swarm; its dimming is a growth malus on the system's own colonies at completion | 2026-11-14 | `07 D81` |
 | The Lance | Provisional rules for the owner to confirm or rebase; fires on energy since E1 (replacing S2's 500 fuel) | 2026-11-14 | `07 D80`, `D82`, `D57` |
 | Lance war | A strike outside war declares war (to humiliate) | 2026-11-14 | `07 D115` |
-| Megabore name | The Crystal Megabore became the Rare-ore Megabore (id `crystal_megabore` kept) | 2026-11-14 | `07 D57` |
+| Megabore name | The Crystal Megabore became the Rare-ore Megabore, now the Core Auger (id `crystal_megabore` kept) | 2026-11-14 | `07 D57` |
 | Kardashev gates | Swarm in the Type I gate, Sphere in the Type II gate; a new roster of great works scoped separately | 2026-11-21 | `07 D278` |
 | AI and great works | The AI builds great works as part of development, triggered by having the resources | 2026-11-23 | `07 D278` call 8 |
-| Gateway trade | A route shortcut, as the Mass Driver's | 2026-11-23 | `07 D283` call 1 |
+| Hyperspace Lock trade | A route shortcut, as the Mass Driver's | 2026-11-23 | `07 D283` call 1 |
 | Capstones | New capstone structures, designed with the ascension paths later | 2026-11-23 | `07 D283` call 3 |
 | AI advisor | M19c: one structure at a time | 2026-11-23 | `07 D283` call 5 |
+| Own names | Eleven works and five techs take the game's own names, display names only with every id kept; each renamed work's own effect rides on the great-works phases; the docs stop using kilo, mega and giga | 2026-11-26 | `07 D292` |
 
 ## Not yet built or still open
 
 - **The Lance's rules** are provisional; the owner is to confirm or rebase them (DESIGN.md, open questions).
-- **The great works roster.** A separate session will design a wider roster of kilo-, mega- and gigastructures, not on Stellaris's template, under the owner's four scales: Prima, Maiora, Magna and Grandia Opera Astralia. How the eras of `01 §9.6` sit beside the Kardashev ages is open (`07 D278`; DESIGN.md open questions).
+- **The great works roster.** A separate session will design a wider roster of great works, not on Stellaris's template, under the owner's four scales: Prima, Maiora, Magna and Grandia Opera Astralia. How the eras of `01 §9.6` sit beside the Kardashev ages is open (`07 D278`; DESIGN.md open questions).
 - **Capstone structures** for the three ascension paths will be designed with the paths, after the Expanse, precursor and genemodding scopes (`07 D283`).
-- **M19c, the AI's megastructure advisor,** is planned (≈ 450 lines): on the planning day, the highest-value structure it can afford within its budget's reserve, by personality weights, one at a time, giga structures only past their tech and era (`07 D283`).
-- **The Asteroid Battery under the station redesign.** `07 D284` removes the batteries column from starbases in favour of a station of sections; no source read says what becomes of the Asteroid Battery's `batteries` hook.
-- **Star ageing** (the Star Lifter) and the **Strip-mine Engine's shrinking** were cut (`07 D79`, `D82`).
+- **M19c, the AI's megastructure advisor,** is planned (≈ 450 lines): on the planning day, the highest-value structure it can afford within its budget's reserve, by personality weights, one at a time, Magna works only past their tech and era (`07 D283`).
+- **The Belt Redoubt under the station redesign.** `07 D284` removes the batteries column from starbases in favour of a station of sections; no source read says what becomes of the Belt Redoubt's `batteries` hook.
+- **The renamed works' own effects** (`07 D292`) are not built: each rides on a phase of the great-works roster (`07 D277`) or on the station and terraforming milestones, and is measured on the host when its phase is. Among them: the Hyperspace Lock drawing energy for a crossing, the World Quarry's output by its body's size, the Sun Dredge's by its star's luminosity, the Core Auger as the second step of a Mantle Tap, and the Coronal Collider's failure tied to hyperspace weather.
+- **Star ageing** (the Sun Dredge) and the **World Quarry's shrinking** were cut (`07 D79`, `D82`).
 
 ## Discrepancies noted
 
@@ -183,7 +207,7 @@ Orders, stages and restorations are constructions and commands that resolve on t
 - 13 §6 Megastructures
 - 13 §7 Milestones
 - 01 §9.8 Megastructures and ascension
-- 07 Decisions: D57, D70, D78, D79, D80, D81, D82, D113, D115, D136, D278, D283, D284
+- 07 Decisions: D57, D70, D78, D79, D80, D81, D82, D113, D115, D136, D278, D283, D284, D292
 - 05 Milestones: S1, S2, M19
 - 00 Status (S2, M19a and T2 merges)
 - DESIGN.md (pillar "Megastructures"; open questions; autonomous calls of 2026-11-14; change log)

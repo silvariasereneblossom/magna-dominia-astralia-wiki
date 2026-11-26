@@ -172,9 +172,9 @@ Automation runs as standing orders on the timer heap, never by per-tick polling.
 
 # Galaxy and hyperspace
 
-**Status:** built, as of 2026-11-23. Galaxy generation in M1, hyperspace and deep space in M8c (verified 2026-11-13); gateway trade links in M19a.
+**Status:** built, as of 2026-11-23. Galaxy generation in M1, hyperspace and deep space in M8c (verified 2026-11-13); lock trade links in M19a.
 
-The galaxy is generated as a pure function of the seed and the settings. There are no hyperlanes: star systems sit in hyperspace, an open and dangerous medium that fleets cross from any system to any other along routes planned at departure. Its weather (storms and currents) is fixed by the seed and the month, so travel is forecast exactly but never stable. Empires build beacon corridors that the shifting currents keep bending, and later techs add warp and buildable wormholes (Gateways). Beyond charted space, deep space grows more dangerous and more rewarding with distance.
+The galaxy is generated as a pure function of the seed and the settings. There are no hyperlanes: star systems sit in hyperspace, an open and dangerous medium that fleets cross from any system to any other along routes planned at departure. Its weather (storms and currents) is fixed by the seed and the month, so travel is forecast exactly but never stable. Empires build beacon corridors that the shifting currents keep bending, and later techs add warp and buildable wormholes (Hyperspace Locks). Beyond charted space, deep space grows more dangerous and more rewarding with distance.
 
 ## How it works
 
@@ -295,16 +295,16 @@ Megastructures add corridor holding: a Hyperspace Anchor stabilises every corrid
 | 1 | Beacon Engineering (engineering) | `BuildCorridor` |
 | 2 | Corridor Stabilisation (physics) | corridor decay −50% (`stabilisation` 0.5), break threshold 0.2 |
 | 3 | Warp Drive (physics) | a warp core, a utility component with power 6. A fleet whose every ship carries one charges 10 days at the system edge in place of the windup when its target is within 8 cells, then arrives the next day, ignoring drag, storms and intercepts (no footprints), at 3× the fuel of the straight distance's days |
-| 4 | Gateway Theory (physics) | a Gateway megastructure at an own starbase of size 6 or more |
+| 4 | Lock Theory (physics) | a Hyperspace Lock megastructure at an own starbase of size 6 or more |
 
-**Gateways** (`07 D46`, moved unchanged onto the megastructure model in S1):
+**Hyperspace Locks** (`07 D46`, moved unchanged onto the megastructure model in S1):
 
 - Cost 5,000 alloys and 800 parts from the starbase's market over 1,080 days; upkeep 30 credits and 4 parts.
-- A fleet in a Gateway system ordered to another own Gateway system crosses in 1 day after the windup.
-- A fleet may also cross between its own Gateway and the Gateway of an empire it holds open borders with, as between its own (`07 D114`).
-- **Trade links** (`07 D283`, built in M19a on 2026-11-23): an empire's own hub pair with usable Gateways at both hubs' systems (its own, or an open-borders partner's) takes the jump's days when quicker than the flown route, with no piracy and no loss on the jump, freight paid on the shorter days only, and closed by a blockade at either gate. A Gateway serves the hub at its own system. Pact routes and the Galactic Exchange's legs still fly.
+- A fleet in a Hyperspace Lock system ordered to another own Hyperspace Lock system crosses in 1 day after the windup.
+- A fleet may also cross between its own Hyperspace Lock and the Hyperspace Lock of an empire it holds open borders with, as between its own (`07 D114`).
+- **Trade links** (`07 D283`, built in M19a on 2026-11-23): an empire's own hub pair with usable Hyperspace Locks at both hubs' systems (its own, or an open-borders partner's) takes the jump's days when quicker than the flown route, with no piracy and no loss on the jump, freight paid on the shorter days only, and closed by a blockade at either gate. A Hyperspace Lock serves the hub at its own system. Pact routes and the Galactic Exchange's legs still fly.
 
-There are no natural wormholes: they were removed with the lanes, and Gateways are the buildable wormholes (`07 D46`).
+There are no natural wormholes: they were removed with the lanes, and Hyperspace Locks are the buildable wormholes (`07 D46`).
 
 ### Distance replaces hops
 
@@ -373,7 +373,7 @@ The hyperspace layer is one texel per cell (clouds violet, storms amber, corrido
 | No hyperlanes | A dangerous hyperspace crossed from any system to any other, as in Starsector; replaces the hyperlanes | 2026-11-12 | `07 D43` |
 | Simulation model | A coarse grid with monthly weather; routes planned at departure with arrival and hazards computed then (live storms with free flight rejected) | 2026-11-12 | `07 D43` |
 | Strategic structure | Built beacon corridors bent by shifting currents; higher techs counter with stable corridors, warp or wormholes | 2026-11-12 | `07 D43` |
-| Late travel | All three tiers plus buildable Gateways as a fourth tier | 2026-11-12 | `07 D43` |
+| Late travel | All three tiers plus buildable Hyperspace Locks as a fourth tier | 2026-11-12 | `07 D43` |
 | Deep space | Danger rising with depth; three deep factions; caches, stashes and rich fields with deep outposts; built in M8c | 2026-11-12 | `07 D45` |
 | Grid size | Cells of `d_min / 2` with a 12-cell margin (69 × 69 at Medium); replaces D43's "about 128 × 128 cells" | 2026-11-13 | `07 D46` |
 | Piracy regions | 6 × 6 cells; replaces D43's 16 × 16 | 2026-11-13 | `07 D46` |
@@ -382,23 +382,23 @@ The hyperspace layer is one texel per cell (clouds violet, storms amber, corrido
 | Freight | `amount × (days + 2 × 2.5) × 0.05`, half on corridor share; replaces D43's `amount × routeDays × 0.05` | 2026-11-13 | `07 D46` |
 | Storms slow | A storm adds its strength to the drag | 2026-11-13 | `07 D46` |
 | Clouds after empires | Clouds rolled after placement and moved off homes | 2026-11-13 | `07 D46` |
-| Natural wormholes | Removed; Gateways are the wormholes | 2026-11-13 | `07 D46` |
-| Allied Gateways | Read as open borders, since alliances were 1.0 at the time | 2026-11-14 | `07 D114` |
+| Natural wormholes | Removed; Hyperspace Locks are the wormholes | 2026-11-13 | `07 D46` |
+| Allied Hyperspace Locks | Read as open borders, since alliances were 1.0 at the time | 2026-11-14 | `07 D114` |
 | Hyperspace Anchor | Holds every corridor in its radius, not only its owner's | 2026-11-14 | `07 D78`, `DESIGN.md` |
-| Gateway trade | A route shortcut for an empire's own hub pairs, as the Mass Driver's | 2026-11-23 | `07 D283` |
+| Hyperspace Lock trade | A route shortcut for an empire's own hub pairs, as the Mass Driver's | 2026-11-23 | `07 D283` |
 
 ## Not yet built or still open
 
 - The `07 D46` call set (M8c's calls beyond the spec) is listed in `DESIGN.md` as still open for the owner's review.
 - The `01` passages that M8c converted from hops by ratio (5 route days per old hop, 2 cells per jump; listed at the end of `07 D46`) await the owner's eye.
 - `05 M8c`'s bench box (a route plan across Huge ≤ 200 µs × calibration, the monthly raster ≤ 2 ms, the full tick within 5% of M8b's) is unchecked: the full tick was 15–17% over M8b's, carried to P1.
-- No AI builds Gateways yet; the AI's megastructure advisor is M19c (`07 D283`).
+- No AI builds Hyperspace Locks yet; the AI's megastructure advisor is M19c (`07 D283`).
 - Storm suppression in the third age and storm-forecast techs are listed in the tech tree rework as future hooks (`07 D278`).
 
 ## Discrepancies noted
 
-- **Allied Gateways.** The `01 §2.1` tiers table still says "allied Gateways join with alliances (`05 M10`)". `07 D114` (2026-11-14) reads this as open borders, because alliances were 1.0 then. Alliances were built in M18a (merged 2026-11-23, `07 D279`). The sources do not say whether alliance members' Gateways now join as well as open-borders partners'.
-- **Commodity names in hyperspace rules.** `01 §2` step 5 and `01 §2.1` still name `crystal` deposits and `parts` in the corridor, Gateway and outpost bills, while `01 §7` records that crystal became rare ore and parts became components in E1 ("saves map them in place"). The numbers are unaffected; the names in `01 §2`–`§2.1` predate E1.
+- **Allied Hyperspace Locks.** The `01 §2.1` tiers table still says "allied Hyperspace Locks join with alliances (`05 M10`)". `07 D114` (2026-11-14) reads this as open borders, because alliances were 1.0 then. Alliances were built in M18a (merged 2026-11-23, `07 D279`). The sources do not say whether alliance members' Hyperspace Locks now join as well as open-borders partners'.
+- **Commodity names in hyperspace rules.** `01 §2` step 5 and `01 §2.1` still name `crystal` deposits and `parts` in the corridor, Hyperspace Lock and outpost bills, while `01 §7` records that crystal became rare ore and parts became components in E1 ("saves map them in place"). The numbers are unaffected; the names in `01 §2`–`§2.1` predate E1.
 
 ## Sources
 
@@ -1199,7 +1199,7 @@ job output × (1 + (0.25 + Σ pop.skill_output) × (skill − 0.5))     // 0.875
 | Meritocracy civic | `pop.skill_gain` +15%, `pop.skill_output` +0.05 |
 | Governor trait Educator | planet `pop.skill_gain` +25% |
 | Prosperity perk Guilds | a skill modifier (`01 §6.8`) |
-| 1.0: Science Nexus; Synthetic ascension | empire `pop.skill_gain` +25%; synthetic cohorts start at 0.75 |
+| 1.0: Athenaeum; Synthetic ascension | empire `pop.skill_gain` +25%; synthetic cohorts start at 0.75 |
 
 Whatever the modifiers, the factor is 1.0 at skill 0.5, so the opening is unchanged.
 
@@ -1295,7 +1295,7 @@ Every rule above runs inside the daily tick (or its 5-day stagger) and every pla
 - **Wages** (jobs paying credits per pop, floating with vacancies) and **age bins** per cohort, deferred to 1.0 (`07 D24`).
 - Slave and robot strata, migration treaties, and migration routed through the inbound ring instead of same-day arrival (1.0).
 - A per-colony tax override (1.0).
-- 1.0 skill hooks: the Science Nexus and Synthetic ascension (the ascension paths left M19 for a later milestone, `07 D283`).
+- 1.0 skill hooks: the Athenaeum and Synthetic ascension (the ascension paths left M19 for a later milestone, `07 D283`).
 
 ## Discrepancies noted
 
@@ -1532,7 +1532,7 @@ Seventeen commodities, within the registry cap of 32 (`docs/14 §2`, `07 D73`, b
 | cells | Charged cells | mfg | 15.0 | any market with spare energy and empties (1 battery + 10 energy) |
 | crude_fuel | Crude fuel | mfg | 2.0 | Depot Worker |
 | exotic_matter | Exotic matter | raw | 10.0 | deep-space fields |
-| exotic_fuel | Exotic fuel | mfg | 12.0 | Exotic Refiner (Zero-Point Power) |
+| exotic_fuel | Exotic fuel | mfg | 12.0 | Exotic Refiner (Vacuum Power) |
 
 Uses (`01 §7.2`): alloys go into districts, buildings and ships; components into advanced buildings, ship systems and starbase sizes; machine tools into megastructures, terraforming and advanced buildings; the four fuels into fleets; luxuries to rulers and entertainers; goods to pops, research and bureaucracy.
 
@@ -1825,7 +1825,7 @@ The standard origin's opening ledger nets +8.2 credits on day 1 (+9.45 running, 
 
 # Trade and logistics
 
-**Status:** built, as of 2026-11-23. The network, dispatcher and piracy shipped in M5 and were moved onto the hyperspace grid in M8c; physical logistics in M8b; trade fleets, subsidies and embargo, the Galactic Exchange and smuggling in M17a–d (merged 2026-11-22 to 2026-11-23); gateway trade in M19a (merged 2026-11-23).
+**Status:** built, as of 2026-11-23. The network, dispatcher and piracy shipped in M5 and were moved onto the hyperspace grid in M8c; physical logistics in M8b; trade fleets, subsidies and embargo, the Galactic Exchange and smuggling in M17a–d (merged 2026-11-22 to 2026-11-23); lock trade in M19a (merged 2026-11-23).
 
 Goods move between markets only by shipment. Every empire runs a hub-and-spoke trade network over the hyperspace grid, and a daily dispatcher ships surplus to deficit along it, paying freight, transit days and losses to piracy, under each market's accessibility and import cap. Nothing teleports: a construction draws only from its own system, so a remote starbase upgrade waits for its alloys to arrive. On top of the abstract network sit commercial pacts with tariffs, physical trade convoys, subsidies and embargoes, a neutral Galactic Exchange, smuggling, and gateway shortcuts. Trade is drawn on the map, so the player sees where goods flow, where pirates feed and where a blockade has cut a route.
 
@@ -1988,9 +1988,9 @@ Built and merged 2026-11-23 (`07 D275` call 4 B):
 - **The persona.** With its transponder off it may trade where outlaw and sell contraband at the black-market price, untaxed; Smuggling grows by such trades. A catch also costs reputation.
 - **AI smugglers** (the owner chose B, AI empires too): on its planning day an AI runs up to two smuggling routes into the nearest rival market (rivalry or war) that bans a good one of its markets makes in surplus, when the margin beats the catch risk. It takes an idle freighter first, else one off a legal route. A caught AI smuggler costs −15 opinion for a year and a year's cooldown; the rival's patrol choice weighs detected smuggling beside piracy.
 
-### Gateway trade (M19a)
+### Hyperspace Lock trade (M19a)
 
-The owner's call of 2026-11-23 (`07 D283` call 1 A: a route shortcut, as the Mass Driver's), merged the same day. An empire's own hub pair jumps when both hubs' systems hold a Gateway it may use (its own, or an open-borders partner's, as fleets use them) and the jump is quicker than the flown route. The jump's leg takes the gateway's days, crosses no piracy region, loses nothing, has no corridor share, and is closed by a blockade at either gate. Freight is paid on the shorter days only. It is derived at route time, with no field rebuild when a gate is built or falls. Pact routes and the Exchange's legs still fly (their hub pairs are two empires'). No AI builds a Gateway yet (that waits for M19c).
+The owner's call of 2026-11-23 (`07 D283` call 1 A: a route shortcut, as the Mass Driver's), merged the same day. An empire's own hub pair jumps when both hubs' systems hold a Hyperspace Lock it may use (its own, or an open-borders partner's, as fleets use them) and the jump is quicker than the flown route. The jump's leg takes the gateway's days, crosses no piracy region, loses nothing, has no corridor share, and is closed by a blockade at either gate. Freight is paid on the shorter days only. It is derived at route time, with no field rebuild when a gate is built or falls. Pact routes and the Exchange's legs still fly (their hub pairs are two empires'). No AI builds a Hyperspace Lock yet (that waits for M19c).
 
 ### Map visualisation
 
@@ -2016,11 +2016,11 @@ The trade layer is part of MVP and is the pillar "trade is visible" (`01 §8.8`)
 | Supply resilience | AI site choice weighs food resilience and vetoes farmless unreachable sites (D), with a food buffer as the backstop (B); a food floor on the import cap (C) not chosen | 2026-11-21 | `07 D274` |
 | M17's six calls | Convoys physical only (capacity term dropped); insurance for every empire at 1.2 × expected loss; the Exchange a neutral unowned station with a 5% fee; smuggling with AI smugglers (B); three subsidy levels; embargo as `§8.7` with the AI using it | 2026-11-21 | `07 D275` |
 | Exchange as a pseudo pact partner | Members trade with the Exchange through step 5 over lossy legs (A), not an off-map spot market (B) | 2026-11-22 | `07 D275`, DESIGN |
-| Gateway trade | A route shortcut for an empire's own hub pairs (A), not gateway edges in the fields (B) | 2026-11-23 | `07 D283` |
+| Hyperspace Lock trade | A route shortcut for an empire's own hub pairs (A), not lock edges in the fields (B) | 2026-11-23 | `07 D283` |
 
 ## Not yet built or still open
 
-- **The AI builds no Gateways** until M19c, the AI's megastructure advisor (`07 D283`), so gateway trade appears only for the player in AI-only runs.
+- **The AI builds no Hyperspace Locks** until M19c, the AI's megastructure advisor (`07 D283`), so lock trade appears only for the player in AI-only runs.
 - **AI patrols against refused routes** (R2 of `07 D265`) are kept as a later design option.
 - **Narrowing each field's pact targets** (S2 of `07 D267`) would change pact routes and is not built.
 - **A walk cut in the dispatcher** (compacting spent sources, "C2 at this scale") was proposed by track M and not built (`07 D274`); dispatch leads the design-scale Huge worst tick (see [Architecture and performance](Design-Architecture-and-performance)).
@@ -2625,19 +2625,19 @@ The strategic clock pauses while the player's battle waits, in both clocks; the 
 
 # Megastructures
 
-**Status:** built, as of 2026-11-23. The shared model with 8 kilo- and 8 megastructures and ruins in S1, the 5 gigastructures and giga ruins in S2 (both 2026-11-14), Gateway trade links in M19a and the AI's orders for great works in T2 (both 2026-11-23); the AI megastructure advisor (M19c) and a new roster of great works are still to come.
+**Status:** built, as of 2026-11-26. The shared model with 8 Prima and 8 Maiora works and ruins in S1, the 5 Magna works and their ruins in S2 (both 2026-11-14), Hyperspace Lock trade links in M19a and the AI's orders for great works in T2 (both 2026-11-23); eleven works took the game's own names on 2026-11-26; the AI megastructure advisor (M19c) and a new roster of great works are still to come.
 
-Megastructures are large staged constructions in three tiers, kilo, mega and giga (names and tiers under revision as the great works get their own identities). Twenty-one of them are data in `megastructures.json`: they place by rules on stars, bodies or starbases, draw each stage's bill from their own system's markets like any construction, and act through modifier rows and a few code hooks (corridor anchors, yards, mass-driver links, habitats, the Gateway, the Nicoll-Dyson Lance). Ruined structures lie mostly in deep space and the abyss, guarded by automata, and can be restored at a quarter of their cost.
+Megastructures, the great works, are large staged constructions in three scales: Prima, Maiora and Magna Opera Astralia. The first set was inspired by the Stellaris mod Gigastructural Engineering & More; the names and identities here are the game's own. Twenty-one of them are data in `megastructures.json`: they place by rules on stars, bodies or starbases, draw each stage's bill from their own system's markets like any construction, and act through modifier rows and a few code hooks (corridor anchors, yards, mass-driver links, habitats, the Hyperspace Lock, the Nicoll-Dyson Lance). Ruined structures lie mostly in deep space and the abyss, guarded by automata, and can be restored at a quarter of their cost.
 
 ## How it works
 
 ### The shared model
 
-One data-driven model serves every tier (`13 §6`, `07 D78`):
+One data-driven model serves every scale (`13 §6`, `07 D78`):
 
 | Part | Rule |
 |---|---|
-| Tier | kilo, mega or giga; tera is left to mods (`13 §6`) |
+| Scale | Prima, Maiora or Magna Opera Astralia (`tier` `kilo`, `mega` or `giga` in the content for now); anything larger is left to mods (`13 §6`) |
 | Placement | on a star, a body or the system's starbase: body kinds, classes and size; the body's colony (any, none or own); star classes; the cell's depth; the starbase's least size; per-system and per-empire limits; one structure a body (`07 D78`) |
 | Prerequisites | `requires` another of the builder's structures, active in the same system; `consumes` replaces it on completion (`07 D81`) |
 | Stages | each stage and upgrade has a bill, days, upkeep (credits and commodities) and modifier rows (`07 D78`) |
@@ -2663,7 +2663,7 @@ Nothing runs per tick: stages run on construction timers, effects are rows, fail
 
 | Hook | What it does (`07 D78`, `D81`) |
 |---|---|
-| `gateway` | crossing days; the Gateway keeps M8c's `gate` column, so hyperspace is unchanged |
+| `gateway` | crossing days; the Hyperspace Lock keeps M8c's `gate` column, so hyperspace is unchanged |
 | `anchor` (radius, depth) | caps depth at the Chebyshev distance less the radius; drift skips cells within the radius; holds every corridor in reach, not only its owner's |
 | `yard` (class, slots, repair) | on the system's starbase |
 | `driver` (fraction) | a new Mass Driver links to the empire's oldest unlinked driver in another system; routes between the two systems take the fraction of their days |
@@ -2671,45 +2671,67 @@ Nothing runs per tick: stages run on construction timers, effects are rows, fail
 | `batteries` | adds batteries to the system's starbase |
 | `lance` | the Nicoll-Dyson Lance's strike (below) |
 
-### Kilostructures (8)
+### Prima Opera Astralia (8)
 
 | Structure | Placement | Bill | Days | Upkeep /30 d | Effect |
 |---|---|---|---|---|---|
-| Asteroid Manufactory | an asteroid belt, no colony | 400 alloys, 40 components | 240 | 3 cr | +5% artisan output |
-| Asteroid Battery | an asteroid belt, no colony | 500 alloys, 60 components | 240 | 2 cr, 0.5 components | +0.05 piracy security and 4 batteries on the system's starbase |
-| Orbital Ecosystem | a barren, molten, toxic or frozen body, no colony | 600 alloys, 60 components, 200 food | 300 | 3 cr | founds a habitat-like colony around the body |
+| Belt Foundry | an asteroid belt, no colony | 400 alloys, 40 components | 240 | 3 cr | +5% artisan output |
+| Belt Redoubt | an asteroid belt, no colony | 500 alloys, 60 components | 240 | 2 cr, 0.5 components | +0.05 piracy security and 4 batteries on the system's starbase |
+| Hanging Garden | a barren, molten, toxic or frozen body, no colony | 600 alloys, 60 components, 200 food | 300 | 3 cr | founds a habitat-like colony around the body |
 | Atmospheric Processor | a planet with an own colony | 500 alloys, 50 components, 200 gas | 360 | 3 cr, 1 gas | +3 housing and +10% growth on the colony below |
-| Gas Giant Stabiliser | a gas giant, no colony | 700 alloys, 80 components, 100 gas | 360 | 4 cr | a colonisable gas giant (`13 §6`): its habitat hook founds a habitat around the body |
-| Stellar Particle Accelerator | a star | 800 alloys, 120 components, 100 rare ore | 360 | 5 cr, 1 rare ore | +20% physics, each further one an empire finishes adding half of the one before (+10%, +5%: `stack` 0.5, `07 D278 §16`); 2% yearly failure, which ruins it |
-| Orbital Arcology | a planet of size 8–30, no colony | 900 alloys, 100 components, 200 goods | 420 | 5 cr | +6 housing and +2 amenities on its habitat |
+| Cloudhold | a gas giant, no colony | 700 alloys, 80 components, 100 gas | 360 | 4 cr | a colonisable gas giant (`13 §6`): its habitat hook founds a habitat around the body |
+| Coronal Collider | a star | 800 alloys, 120 components, 100 rare ore | 360 | 5 cr, 1 rare ore | +20% physics, each further one an empire finishes adding half of the one before (+10%, +5%: `stack` 0.5, `07 D278 §16`); 2% yearly failure, which ruins it |
+| Crown City | a planet of size 8–30, no colony | 900 alloys, 100 components, 200 goods | 420 | 5 cr | +6 housing and +2 amenities on its habitat |
 | Beacon Spire | a starbase of size ≥ 2 | 300 alloys, 30 components | 180 | 2 cr | a small hyperspace anchor: radius 3, holding corridors, no depth change |
 
-### Megastructures (8)
+### Maiora Opera Astralia (8)
 
 | Structure | Placement | Stages × bill | Days a stage | Upkeep /30 d | Effect |
 |---|---|---|---|---|---|
-| Gateway | a starbase of size ≥ 6, charted space (depth 0) | 1 × 5,000 alloys, 800 components | 1,080 | 30 cr, 4 components | fleet crossings between Gateways (`01 §2.1`); trade shortcut (M19a, below) |
+| Hyperspace Lock | a starbase of size ≥ 6, charted space (depth 0) | 1 × 5,000 alloys, 800 components | 1,080 | 30 cr, 4 components | fleet crossings between Hyperspace Locks (`01 §2.1`); trade shortcut (M19a, below) |
 | Hyperspace Anchor | a starbase of size ≥ 4 | 1 × 2,500 alloys, 300 components, 200 rare ore | 720 | 15 cr, 2 components | radius 6: holds every corridor and lowers depth |
 | Shipyard Ring | a starbase of size ≥ 4 | 1 × 3,000 alloys, 400 components, 100 machine tools | 720 | 20 cr, 2 components | builds super-capitals; +2 yard slots; repair × 2 |
 | Mass Driver | a starbase of size ≥ 3 | 1 × 1,500 alloys, 200 components | 540 | 10 cr, 1 fuel | a linked pair's routes take 0.25 of their days; +5% freight |
 | Dyson Swarm | an O/B, A, F, G or K star; known from the start (T5b, `07 D278 §16`) | six sections: 400 / 600 / 1,000 / 1,600 / 2,200 / 2,500 alloys and a tenth as many components | 240 / 240 / 300 / 360 / 360 / 360 | 2 / 3 / 5 / 8 / 10 / 12 cr | each section lands energy at the system's starbase market, times the star's luminosity: 40 / 60 / 120 / 230 / 350 / 400 a month (1,200 in all on a G star); sections two to six wait for Orbital Solar Arrays, Beamed Power, Stellar Collectors, Statite Engineering and Swarm Fabrication; finished, it is the Type I structure |
-| Strip-mine Engine | a barren, molten, toxic or frozen body of size 8–30, no colony | 2 × 1,200 alloys, 150 components, 50 machine tools | 360 | 6 cr (and 0.5 machine tools in the first stage) | per stage +8% miner output; 5% yearly decay |
-| Rare-ore Megabore | a molten body, no colony | 1 × 1,500 alloys, 200 components, 50 machine tools | 540 | 8 cr, 0.5 machine tools | +15% rare-ore (crystal) output |
-| Science Nexus | a starbase of size ≥ 4; 1 per empire | 2 × 2,000 alloys, 300 components, 200 rare ore | 540 | 15 cr a stage | +15% to each research field and +10% skill gain; a quantum-core upgrade (+10% physics) |
+| World Quarry | a barren, molten, toxic or frozen body of size 8–30, no colony | 2 × 1,200 alloys, 150 components, 50 machine tools | 360 | 6 cr (and 0.5 machine tools in the first stage) | per stage +8% miner output; 5% yearly decay |
+| Core Auger | a molten body, no colony | 1 × 1,500 alloys, 200 components, 50 machine tools | 540 | 8 cr, 0.5 machine tools | +15% rare-ore (crystal) output |
+| Athenaeum | a starbase of size ≥ 4; 1 per empire | 2 × 2,000 alloys, 300 components, 200 rare ore | 540 | 15 cr a stage | +15% to each research field and +10% skill gain; a quantum-core upgrade (+10% physics) |
 
-### Gigastructures (5)
+### Magna Opera Astralia (5)
 
-Each gigastructure is one per empire, with long staged builds and large upkeep (`13 §6`, `07 D82`).
+Each Magna work is one per empire, with long staged builds and large upkeep (`13 §6`, `07 D82`).
 
 | Structure | Placement | Stages × bill | Days a stage | Upkeep /30 d | Effect (`07 D82`) |
 |---|---|---|---|---|---|
 | Matrioshka Brain | a star | 3 × 4,000 alloys, 600 components, 400 rare ore | 720 | 30 cr (and 2 rare ore in the first stage) | +25% to each field per stage, then −10% tech cost and +5% build speed |
 | Dyson Sphere | an O/B, A, F, G or K star; 1 per empire; requires and consumes the finished Dyson Swarm | 3 × 5,000 alloys, 500 components, 200 machine tools | 720 | 25 cr a stage | each stage lands 8,000 energy a month at the system's starbase market, times the star's luminosity; the third closes it and cools the system's planets (habitability −20) until the Dyson Aperture upgrade (3,000 alloys, 600 components, 200 machine tools, 720 days; tier 6) gives it back; closed, it is the Type II structure |
 | Ringworld | an F, G or K star | 3 sections × 6,000 alloys, 600 components, 500 goods | 900 | 20 cr a section | a habitat around the star: +15 housing per section, +2 building slots in the first two, +5 amenities in the last |
-| Star Lifter | a star | 2 × 3,500 alloys, 500 components, 200 machine tools | 720 | 20 cr (and 1 machine tool in the first stage) | +20% gas per stage, +5% physics in the second |
+| Sun Dredge | a star | 2 × 3,500 alloys, 500 components, 200 machine tools | 720 | 20 cr (and 1 machine tool in the first stage) | +20% gas per stage, +5% physics in the second |
 | Nicoll-Dyson Lance | a star; requires a Dyson Sphere in the system (not consumed) | 2 × 6,000 alloys, 800 components, 400 rare ore | 900 | 40 cr, 2 components a stage | a strategic strike across hyperspace (below) |
 
-Placement, bills, days and upkeep are from `data/content/megastructures.json`; the commodity names are E1's (parts became components, crystal rare ore, machinery machine tools; `07 D57`). `07 D79` gives the S1 ranges as kilostructures 300–900 alloys, 30–120 components, 180–420 days, 2–5 credits upkeep, and megastructures 1,200–3,000 alloys and 150–400 components a stage, 360–720 days a stage, 6–20 credits upkeep. Effects are first guesses for balance passes (`07 D79`, `D82`).
+Placement, bills, days and upkeep are from `data/content/megastructures.json`; the commodity names are E1's (parts became components, crystal rare ore, machinery machine tools; `07 D57`). `07 D79` gives the S1 ranges as Prima works 300–900 alloys, 30–120 components, 180–420 days, 2–5 credits upkeep, and Maiora works 1,200–3,000 alloys and 150–400 components a stage, 360–720 days a stage, 6–20 credits upkeep. Effects are first guesses for balance passes (`07 D79`, `D82`).
+
+### The game's own names (2026-11-26)
+
+Eleven works and five techs carry the game's own names (the owner's calls of 2026-11-26, `07 D292`). Only the display names changed: every id in `megastructures.json` and `techs.json` is kept, so saves, mods and sprites are untouched. Older decisions and milestone notes use the earlier names.
+
+| Id | Earlier name | Name |
+|---|---|---|
+| `science_nexus` | Science Nexus | **Athenaeum** |
+| `gateway` | Gateway | **Hyperspace Lock** |
+| `asteroid_manufactory` | Asteroid Manufactory | **Belt Foundry** |
+| `asteroid_battery` | Asteroid Battery | **Belt Redoubt** |
+| `orbital_ecosystem` | Orbital Ecosystem | **Hanging Garden** |
+| `gas_giant_stabiliser` | Gas Giant Stabiliser | **Cloudhold** |
+| `stellar_particle_accelerator` | Stellar Particle Accelerator | **Coronal Collider** |
+| `orbital_arcology` | Orbital Arcology | **Crown City** |
+| `strip_mine_engine` | Strip-mine Engine | **World Quarry** |
+| `crystal_megabore` | Rare-ore Megabore | **Core Auger** |
+| `star_lifter` | Star Lifter | **Sun Dredge** |
+
+Techs: Gateway Theory, Gateway Networks and Gateway Lattice became **Lock Theory**, **Lock Networks** and **Lock Lattice**; Zero-Point Power became **Vacuum Power**; Megaengineering became **Megascale Engineering**.
+
+The three scales are written Prima, Maiora and Magna Opera Astralia; the content's `tier` field still reads `kilo`, `mega` and `giga` until `07 D277`'s first phase renames it.
 
 ### The Nicoll-Dyson Lance
 
@@ -2731,7 +2753,7 @@ The Lance has no ruins (`07 D81`).
 
 ### Failure and decay
 
-A structure with a `failure` arms a yearly timer at a year plus its row mod 360; the roll is a pure function of `(seed, row, year)` (`07 D78`). Failure ruins it: its rows, upkeep and hooks go, and the row stays, unowned. Decay costs the top stage; a one-stage structure falls to ruin (`07 D78`). The built cases are the Stellar Particle Accelerator (2% a year, ruin) and the Strip-mine Engine (5% a year, decay). A fixture gave 202 failures in 10,000 structure-years at 2% (`05 S1`).
+A structure with a `failure` arms a yearly timer at a year plus its row mod 360; the roll is a pure function of `(seed, row, year)` (`07 D78`). Failure ruins it: its rows, upkeep and hooks go, and the row stays, unowned. Decay costs the top stage; a one-stage structure falls to ruin (`07 D78`). The built cases are the Coronal Collider (2% a year, ruin) and the World Quarry (5% a year, decay). A fixture gave 202 failures in 10,000 structure-years at 2% (`05 S1`).
 
 ### Ruins
 
@@ -2739,17 +2761,17 @@ Galaxy generation scatters ruins, seed-hashed so no game stream moves (`07 D78`,
 
 | Rule | Value |
 |---|---|
-| Kilo and mega ruins | `perSystem` 0.06 × systems; `deepShare` 0.8 in cells of depth `deepMin` 6 or more (for kinds whose depth range reaches that), the rest on an eligible star or body of a system with no home |
-| Giga ruins | `gigaPerSystem` 0.006 × systems; `gigaDeepShare` 0.8 in cells of depth `abyssMin` 10 or more |
+| Prima and Maiora ruins | `perSystem` 0.06 × systems; `deepShare` 0.8 in cells of depth `deepMin` 6 or more (for kinds whose depth range reaches that), the rest on an eligible star or body of a system with no home |
+| Magna ruins | `gigaPerSystem` 0.006 × systems; `gigaDeepShare` 0.8 in cells of depth `abyssMin` 10 or more |
 | Deep ruin | a deep site of its own kind: the first fleet in meets automata like a cache, the next claims it |
 | System ruin | known once its system is surveyed; needs no claim |
 | Restoration | a construction ship (`RestoreRuin`) loads `restore` 0.25 of every stage's bill at its system's own starbase market and carries it; the restoration takes the same share of the days, and the structure comes back complete |
 
-Medium seeds 1–3 gave 23, 24 and 23 ruins, of which 19, 21 and 21 lie at depth 6 or more, and 2, 2 and 1 giga ruins, all at depth 10 or more (`05 S1`, `05 S2`). Switching a structure off removes it from building and from generated ruins (`05 S1`). Deep space and its depth bands are on [galaxy-and-hyperspace.md](Design-Galaxy-and-hyperspace).
+Medium seeds 1–3 gave 23, 24 and 23 ruins, of which 19, 21 and 21 lie at depth 6 or more, and 2, 2 and 1 Magna ruins, all at depth 10 or more (`05 S1`, `05 S2`). Switching a structure off removes it from building and from generated ruins (`05 S1`). Deep space and its depth bands are on [galaxy-and-hyperspace.md](Design-Galaxy-and-hyperspace).
 
-### Gateway trade links (M19a)
+### Hyperspace Lock trade links (M19a)
 
-An empire's hub pair takes the Gateway jump when both hubs' systems hold a Gateway it may use (its own, or an open-borders partner's) and the jump is quicker than the pair's route: the jump's days, no piracy, all cargo landed, closed by a blockade at either gate system. It is derived at route time, with no state, no save bump and no field rebuild; pact routes and the Galactic Exchange's legs still fly (`07 D283`, owner's call 1A; merged 2026-11-23 per `00-status.md`). The Mass Driver is the other structure trade reads (`07 D78`). See [trade-and-logistics.md](Design-Trade-and-logistics).
+An empire's hub pair takes the Hyperspace Lock jump when both hubs' systems hold a Hyperspace Lock it may use (its own, or an open-borders partner's) and the jump is quicker than the pair's route: the jump's days, no piracy, all cargo landed, closed by a blockade at either gate system. It is derived at route time, with no state, no save bump and no field rebuild; pact routes and the Galactic Exchange's legs still fly (`07 D283`, owner's call 1A; merged 2026-11-23 per `00-status.md`). The Mass Driver is the other structure trade reads (`07 D78`). See [trade-and-logistics.md](Design-Trade-and-logistics).
 
 ### Technology and the Kardashev gates
 
@@ -2771,32 +2793,34 @@ Orders, stages and restorations are constructions and commands that resolve on t
 
 | Decision | What was decided | Date | Source |
 |---|---|---|---|
-| Set | The themed set of kilo-, mega- and gigastructures (its first names are being replaced with the game's own) | 2026-11-13 | `07 D70` |
-| Scale | Up to gigastructures in MVP; replaces `01 §9.8`'s 1.0 list (Orbital Ring, Dyson Swarm, Science Nexus with +25% skill gain, Habitat) | 2026-11-13 | `07 D70` |
+| Set | The themed set of great works in three scales (its first names were replaced with the game's own on 2026-11-26) | 2026-11-13 | `07 D70` |
+| Scale | Up to the Magna scale in MVP; replaces `01 §9.8`'s 1.0 list (Orbital Ring, Dyson Swarm, Athenaeum with +25% skill gain, Habitat) | 2026-11-13 | `07 D70` |
 | Ruins | Deep-space rewards, sometimes in normal space as in Stellaris | 2026-11-13 | `07 D70` |
 | The model | One data model; effects as modifier rows; hooks opted into by data; stages as constructions | 2026-11-14 | `07 D78` |
 | Anchor reach | A Hyperspace Anchor holds every corridor in its radius, not only its owner's | 2026-11-14 | `07 D78` |
 | Restoration | A construction ship carries 25% of the stages' bill from its system's starbase market; deep ruins claimed by beating automata | 2026-11-14 | `07 D78` |
 | Driver link | A new Mass Driver auto-links to the empire's oldest unlinked driver; the pair's routes take a quarter of the days | 2026-11-14 | `07 D78`, `D79` |
-| Cuts | The Strip-mine Engine's shrinking (it decays instead) and star ageing; the Ringworld kept its three sections | 2026-11-14 | `07 D79`, `D82` |
+| Cuts | The World Quarry's shrinking (it decays instead) and star ageing; the Ringworld kept its three sections | 2026-11-14 | `07 D79`, `D82` |
 | Sphere and Swarm | The Sphere needs and replaces the Swarm; its dimming is a growth malus on the system's own colonies at completion | 2026-11-14 | `07 D81` |
 | The Lance | Provisional rules for the owner to confirm or rebase; fires on energy since E1 (replacing S2's 500 fuel) | 2026-11-14 | `07 D80`, `D82`, `D57` |
 | Lance war | A strike outside war declares war (to humiliate) | 2026-11-14 | `07 D115` |
-| Megabore name | The Crystal Megabore became the Rare-ore Megabore (id `crystal_megabore` kept) | 2026-11-14 | `07 D57` |
+| Megabore name | The Crystal Megabore became the Rare-ore Megabore, now the Core Auger (id `crystal_megabore` kept) | 2026-11-14 | `07 D57` |
 | Kardashev gates | Swarm in the Type I gate, Sphere in the Type II gate; a new roster of great works scoped separately | 2026-11-21 | `07 D278` |
 | AI and great works | The AI builds great works as part of development, triggered by having the resources | 2026-11-23 | `07 D278` call 8 |
-| Gateway trade | A route shortcut, as the Mass Driver's | 2026-11-23 | `07 D283` call 1 |
+| Hyperspace Lock trade | A route shortcut, as the Mass Driver's | 2026-11-23 | `07 D283` call 1 |
 | Capstones | New capstone structures, designed with the ascension paths later | 2026-11-23 | `07 D283` call 3 |
 | AI advisor | M19c: one structure at a time | 2026-11-23 | `07 D283` call 5 |
+| Own names | Eleven works and five techs take the game's own names, display names only with every id kept; each renamed work's own effect rides on the great-works phases; the docs stop using kilo, mega and giga | 2026-11-26 | `07 D292` |
 
 ## Not yet built or still open
 
 - **The Lance's rules** are provisional; the owner is to confirm or rebase them (DESIGN.md, open questions).
-- **The great works roster.** A separate session will design a wider roster of kilo-, mega- and gigastructures, not on Stellaris's template, under the owner's four scales: Prima, Maiora, Magna and Grandia Opera Astralia. How the eras of `01 §9.6` sit beside the Kardashev ages is open (`07 D278`; DESIGN.md open questions).
+- **The great works roster.** A separate session will design a wider roster of great works, not on Stellaris's template, under the owner's four scales: Prima, Maiora, Magna and Grandia Opera Astralia. How the eras of `01 §9.6` sit beside the Kardashev ages is open (`07 D278`; DESIGN.md open questions).
 - **Capstone structures** for the three ascension paths will be designed with the paths, after the Expanse, precursor and genemodding scopes (`07 D283`).
-- **M19c, the AI's megastructure advisor,** is planned (≈ 450 lines): on the planning day, the highest-value structure it can afford within its budget's reserve, by personality weights, one at a time, giga structures only past their tech and era (`07 D283`).
-- **The Asteroid Battery under the station redesign.** `07 D284` removes the batteries column from starbases in favour of a station of sections; no source read says what becomes of the Asteroid Battery's `batteries` hook.
-- **Star ageing** (the Star Lifter) and the **Strip-mine Engine's shrinking** were cut (`07 D79`, `D82`).
+- **M19c, the AI's megastructure advisor,** is planned (≈ 450 lines): on the planning day, the highest-value structure it can afford within its budget's reserve, by personality weights, one at a time, Magna works only past their tech and era (`07 D283`).
+- **The Belt Redoubt under the station redesign.** `07 D284` removes the batteries column from starbases in favour of a station of sections; no source read says what becomes of the Belt Redoubt's `batteries` hook.
+- **The renamed works' own effects** (`07 D292`) are not built: each rides on a phase of the great-works roster (`07 D277`) or on the station and terraforming milestones, and is measured on the host when its phase is. Among them: the Hyperspace Lock drawing energy for a crossing, the World Quarry's output by its body's size, the Sun Dredge's by its star's luminosity, the Core Auger as the second step of a Mantle Tap, and the Coronal Collider's failure tied to hyperspace weather.
+- **Star ageing** (the Sun Dredge) and the **World Quarry's shrinking** were cut (`07 D79`, `D82`).
 
 ## Discrepancies noted
 
@@ -2808,7 +2832,7 @@ Orders, stages and restorations are constructions and commands that resolve on t
 - 13 §6 Megastructures
 - 13 §7 Milestones
 - 01 §9.8 Megastructures and ascension
-- 07 Decisions: D57, D70, D78, D79, D80, D81, D82, D113, D115, D136, D278, D283, D284
+- 07 Decisions: D57, D70, D78, D79, D80, D81, D82, D113, D115, D136, D278, D283, D284, D292
 - 05 Milestones: S1, S2, M19
 - 00 Status (S2, M19a and T2 merges)
 - DESIGN.md (pillar "Megastructures"; open questions; autonomous calls of 2026-11-14; change log)
@@ -3044,7 +3068,7 @@ No prerequisite sits in a higher tier, and there are no forks: nothing an empire
 |---|---|---|---|
 | Toward Type I | 0–3 | near space, the first jump, an interstellar empire; ends with the Dyson Swarm | none |
 | Toward Type II | 4–5 | stellar engineering toward a full Dyson Sphere | Type I |
-| Toward Type III | 6–7 | speculative and gigastructural science | Type II |
+| Toward Type III | 6–7 | speculative science and the largest great works | Type II |
 
 All tier-0 techs are known at game start.
 
@@ -3327,14 +3351,14 @@ The `docs/17 §3.2` proposal within those calls: a species row will carry a clim
 
 - **Six precursor sites** placed at galaxy generation; each is a project of 180 days whose event gives a **clue**. Every opened deep cache also gives a clue (S1's caches, [Galaxy and hyperspace](Design-Galaxy-and-hyperspace)).
 - **The sixth clue** reveals the precursor home system and fires `precursor_home`; the home is the lowest system id among the six sites, and it is surveyed in full. `01 §4.2` describes the reward as "relic + unique system modifier".
-- The deep-space **Automata** guard caches; the **Precursor** hull lineage comes from salvage; ruined mega- and gigastructures sit in deep space and sometimes in normal space ([Megastructures](Design-Megastructures)).
+- The deep-space **Automata** guard caches; the **Precursor** hull lineage comes from salvage; ruined Maiora and Magna works sit in deep space and sometimes in normal space ([Megastructures](Design-Megastructures)).
 - Under the tech rework, the precursor chain is about twelve techs across the three ages with no ordinary way in: they are gated on clues and reached by insight (`07 D278 §5`, designed for T2).
 
 **Designed** (LR1, `docs/17 §3.4`; names are placeholders for the owner):
 
 | Layer | What it is |
 |---|---|
-| The Elders | an ancient, long-extinct civilisation; made the gigastructure ruins, the deep-space anomalies and the oldest relics |
+| The Elders | an ancient, long-extinct civilisation; made the Magna ruins, the deep-space anomalies and the oldest relics |
 | The Concord | a recent galactic polity that built the original Gateway network and the beacon corridors; fell in the Severance, whose cause stays ambiguous until late; its relics are the colony items and blueprints; its automata are the deep-space Automata faction |
 | The Successors | the present empires and pirates, the Concord's scattered heirs |
 | A dormant power | a Concord remnant state sealed in the abyss, which wakes as one of M20's crises |
@@ -3377,7 +3401,7 @@ FC4 built the hooks for the owner's 20–30 authored characters: a condition lis
 | TT1 | Tech tree to 1.0 | replaced by track T's rework (`07 D278`, T1–T5) | ≈ 1.2k |
 | LR1 | Lore and precursors | the eras, the codex, fragment chains, the dormant remnant hook into M20 | ≈ 1.0k (+ lore) |
 | DX1 | Discovery sites | the site registry, layered digs, planet condition ratings, anomalies re-pooled | ≈ 1.6k |
-| TF1 | Terraforming | the parameter model, projects with physical inputs, side effects, new kilostructures | ≈ 1.8k |
+| TF1 | Terraforming | the parameter model, projects with physical inputs, side effects, new Prima works | ≈ 1.8k |
 | PX1 | Planetary exploration | expedition teams, hex crawl, resource nodes, relics as items, surface dangers | ≈ 2.0k |
 
 Suggested order after the MVP: SP1 and CV1, then DX1 and LR1 together, then TT1, TF1 and PX1 (`docs/17 §4`). FC1–FC4's build order put CV1 first, but FC1 shipped on the four built axes with the rename left as "a content and string change on top" (`07 D214`).
@@ -3754,7 +3778,7 @@ Attitude buckets: hostile < −200, unfriendly < −50, neutral, friendly > 50, 
 
 - **Commercial pact:** opens the trade network between the parties; each side's tariff comes from its own trade policy. Pact imports need credits: an empire with no credits imports nothing across a pact (`07 D111`). A pact supplies a deficit only when no domestic source in reach covers it, and pact imports over 30 days stay under 0.25 of the importer's 30-day income (`07 D236`).
 - **Closed borders:** a fleet may not be ordered into a foreign system without open borders or a war (`Reason::Closed`). Hyperspace between systems stays open. Cancelling open borders sends the other's fleets inside home.
-- **Allied Gateways:** a fleet may cross between its own Gateway and that of an empire it holds open borders with (`07 D114`).
+- **Allied Hyperspace Locks:** a fleet may cross between its own Hyperspace Lock and that of an empire it holds open borders with (`07 D114`).
 - **War closes migration** between the belligerents (`border` 0).
 - **Embargo** (M17b, `07 D275` call 6): closes a commercial pact for 5 years and bars a new one; −50 opinion with the target and −10 with its partners. The AI embargoes its rivals.
 
@@ -3859,7 +3883,7 @@ Every act is a command applied on the next tick or turn. An AI answers a proposa
 | Opinion and treaties as built | Opinion computed when read with named terms; treaties as ledger bits; pact imports need credits; closed borders | 2026-11-14 | `07 D111` |
 | Wars | Wars as rows; score and exhaustion computed per `01 §11.3`; both sides at 100 end in the status quo; 10-year truce | 2026-11-14 | `07 D112` |
 | Starbase capture | A starbase at hull 0 passes to the hostile empire at 10% hull (`D113`), once no armed hostile ship still fights there (`D149`) | 2026-11-14, 2026-11-16 | `07 D113`, `D149` |
-| Allied Gateways | Read as open borders until alliances | 2026-11-14 | `07 D114` |
+| Allied Hyperspace Locks | Read as open borders until alliances | 2026-11-14 | `07 D114` |
 | AI commercial pacts | From year 25, with 2 hubs and the reserve met on both sides (replaces `07 D116`'s "no commercial pact of its own") | 2026-11-18 | `07 D242` |
 | Pact trade protects the importer | Domestic sources first; pact imports capped at 0.25 of 30-day income | 2026-11-17 | `07 D236` |
 | Embargo | Closes a pact for 5 years, bars a new one; −50 / −10 opinion | 2026-11-21 | `07 D275` call 6 |
@@ -4685,7 +4709,7 @@ The presentation is everything the player sees and hears: the galaxy and system 
 | Planet cache | One RGBA8 texture array of 64 layers, each 256×128 with its mip chain: 128 KB a layer, about 10.7 MB in all; LRU by last view; the planet screen has its own 512×256 texture | `07 D83` |
 | Sol | The 15 named major bodies use NASA, JPL and USGS public-domain maps at 512×256 WebP (0.17 MB) | `07 D41`, `D83` |
 | Hex surface | One egui textured mesh: 12 terrains and 10 features rendered by Blender into one 1024×416 atlas (40 KB lossy WebP); hidden hexes as flat fog | `07 D84` |
-| Gigastructures | Builders for the Matrioshka Brain, Dyson Sphere, Ringworld, Star Lifter and Nicoll-Dyson Lance; drawn around the star, 110 units across | `07 D84` |
+| Magna Opera Astralia | Builders for the Matrioshka Brain, Dyson Sphere, Ringworld, Sun Dredge and Nicoll-Dyson Lance; drawn around the star, 110 units across | `07 D84` |
 | Motion | Hyperspace storms blend toward next month by the month's fraction; corridors shimmer; fleets trail six days of route in hyperspace and the last quarter of an in-system leg; a jump in or out gets a 1.6 s glint | `07 D87` |
 | Battles | Instanced ships, shots, beams, impacts and particles on a second backend path (C1) | `00-status` (C1) |
 

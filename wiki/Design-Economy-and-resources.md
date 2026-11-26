@@ -37,7 +37,7 @@ Seventeen commodities, within the registry cap of 32 (`docs/14 §2`, `07 D73`, b
 | cells | Charged cells | mfg | 15.0 | any market with spare energy and empties (1 battery + 10 energy) |
 | crude_fuel | Crude fuel | mfg | 2.0 | Depot Worker |
 | exotic_matter | Exotic matter | raw | 10.0 | deep-space fields |
-| exotic_fuel | Exotic fuel | mfg | 12.0 | Exotic Refiner (Zero-Point Power) |
+| exotic_fuel | Exotic fuel | mfg | 12.0 | Exotic Refiner (Vacuum Power) |
 
 Uses (`01 §7.2`): alloys go into districts, buildings and ships; components into advanced buildings, ship systems and starbase sizes; machine tools into megastructures, terraforming and advanced buildings; the four fuels into fleets; luxuries to rulers and entertainers; goods to pops, research and bureaucracy.
 

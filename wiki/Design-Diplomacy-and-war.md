@@ -42,7 +42,7 @@ Attitude buckets: hostile < −200, unfriendly < −50, neutral, friendly > 50, 
 
 - **Commercial pact:** opens the trade network between the parties; each side's tariff comes from its own trade policy. Pact imports need credits: an empire with no credits imports nothing across a pact (`07 D111`). A pact supplies a deficit only when no domestic source in reach covers it, and pact imports over 30 days stay under 0.25 of the importer's 30-day income (`07 D236`).
 - **Closed borders:** a fleet may not be ordered into a foreign system without open borders or a war (`Reason::Closed`). Hyperspace between systems stays open. Cancelling open borders sends the other's fleets inside home.
-- **Allied Gateways:** a fleet may cross between its own Gateway and that of an empire it holds open borders with (`07 D114`).
+- **Allied Hyperspace Locks:** a fleet may cross between its own Hyperspace Lock and that of an empire it holds open borders with (`07 D114`).
 - **War closes migration** between the belligerents (`border` 0).
 - **Embargo** (M17b, `07 D275` call 6): closes a commercial pact for 5 years and bars a new one; −50 opinion with the target and −10 with its partners. The AI embargoes its rivals.
 
@@ -147,7 +147,7 @@ Every act is a command applied on the next tick or turn. An AI answers a proposa
 | Opinion and treaties as built | Opinion computed when read with named terms; treaties as ledger bits; pact imports need credits; closed borders | 2026-11-14 | `07 D111` |
 | Wars | Wars as rows; score and exhaustion computed per `01 §11.3`; both sides at 100 end in the status quo; 10-year truce | 2026-11-14 | `07 D112` |
 | Starbase capture | A starbase at hull 0 passes to the hostile empire at 10% hull (`D113`), once no armed hostile ship still fights there (`D149`) | 2026-11-14, 2026-11-16 | `07 D113`, `D149` |
-| Allied Gateways | Read as open borders until alliances | 2026-11-14 | `07 D114` |
+| Allied Hyperspace Locks | Read as open borders until alliances | 2026-11-14 | `07 D114` |
 | AI commercial pacts | From year 25, with 2 hubs and the reserve met on both sides (replaces `07 D116`'s "no commercial pact of its own") | 2026-11-18 | `07 D242` |
 | Pact trade protects the importer | Domestic sources first; pact imports capped at 0.25 of 30-day income | 2026-11-17 | `07 D236` |
 | Embargo | Closes a pact for 5 years, bars a new one; −50 / −10 opinion | 2026-11-21 | `07 D275` call 6 |

@@ -28,7 +28,7 @@ The presentation is everything the player sees and hears: the galaxy and system 
 | Planet cache | One RGBA8 texture array of 64 layers, each 256×128 with its mip chain: 128 KB a layer, about 10.7 MB in all; LRU by last view; the planet screen has its own 512×256 texture | `07 D83` |
 | Sol | The 15 named major bodies use NASA, JPL and USGS public-domain maps at 512×256 WebP (0.17 MB) | `07 D41`, `D83` |
 | Hex surface | One egui textured mesh: 12 terrains and 10 features rendered by Blender into one 1024×416 atlas (40 KB lossy WebP); hidden hexes as flat fog | `07 D84` |
-| Gigastructures | Builders for the Matrioshka Brain, Dyson Sphere, Ringworld, Star Lifter and Nicoll-Dyson Lance; drawn around the star, 110 units across | `07 D84` |
+| Magna Opera Astralia | Builders for the Matrioshka Brain, Dyson Sphere, Ringworld, Sun Dredge and Nicoll-Dyson Lance; drawn around the star, 110 units across | `07 D84` |
 | Motion | Hyperspace storms blend toward next month by the month's fraction; corridors shimmer; fleets trail six days of route in hyperspace and the last quarter of an in-system leg; a jump in or out gets a 1.6 s glint | `07 D87` |
 | Battles | Instanced ships, shots, beams, impacts and particles on a second backend path (C1) | `00-status` (C1) |
 

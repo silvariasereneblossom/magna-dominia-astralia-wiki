@@ -45,7 +45,7 @@ No prerequisite sits in a higher tier, and there are no forks: nothing an empire
 |---|---|---|---|
 | Toward Type I | 0–3 | near space, the first jump, an interstellar empire; ends with the Dyson Swarm | none |
 | Toward Type II | 4–5 | stellar engineering toward a full Dyson Sphere | Type I |
-| Toward Type III | 6–7 | speculative and gigastructural science | Type II |
+| Toward Type III | 6–7 | speculative science and the largest great works | Type II |
 
 All tier-0 techs are known at game start.
 

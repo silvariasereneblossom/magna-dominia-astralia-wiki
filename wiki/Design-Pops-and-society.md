@@ -128,7 +128,7 @@ job output × (1 + (0.25 + Σ pop.skill_output) × (skill − 0.5))     // 0.875
 | Meritocracy civic | `pop.skill_gain` +15%, `pop.skill_output` +0.05 |
 | Governor trait Educator | planet `pop.skill_gain` +25% |
 | Prosperity perk Guilds | a skill modifier (`01 §6.8`) |
-| 1.0: Science Nexus; Synthetic ascension | empire `pop.skill_gain` +25%; synthetic cohorts start at 0.75 |
+| 1.0: Athenaeum; Synthetic ascension | empire `pop.skill_gain` +25%; synthetic cohorts start at 0.75 |
 
 Whatever the modifiers, the factor is 1.0 at skill 0.5, so the opening is unchanged.
 
@@ -224,7 +224,7 @@ Every rule above runs inside the daily tick (or its 5-day stagger) and every pla
 - **Wages** (jobs paying credits per pop, floating with vacancies) and **age bins** per cohort, deferred to 1.0 (`07 D24`).
 - Slave and robot strata, migration treaties, and migration routed through the inbound ring instead of same-day arrival (1.0).
 - A per-colony tax override (1.0).
-- 1.0 skill hooks: the Science Nexus and Synthetic ascension (the ascension paths left M19 for a later milestone, `07 D283`).
+- 1.0 skill hooks: the Athenaeum and Synthetic ascension (the ascension paths left M19 for a later milestone, `07 D283`).
 
 ## Discrepancies noted
 

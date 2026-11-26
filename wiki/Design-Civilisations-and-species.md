@@ -87,14 +87,14 @@ The `docs/17 §3.2` proposal within those calls: a species row will carry a clim
 
 - **Six precursor sites** placed at galaxy generation; each is a project of 180 days whose event gives a **clue**. Every opened deep cache also gives a clue (S1's caches, [Galaxy and hyperspace](Design-Galaxy-and-hyperspace)).
 - **The sixth clue** reveals the precursor home system and fires `precursor_home`; the home is the lowest system id among the six sites, and it is surveyed in full. `01 §4.2` describes the reward as "relic + unique system modifier".
-- The deep-space **Automata** guard caches; the **Precursor** hull lineage comes from salvage; ruined mega- and gigastructures sit in deep space and sometimes in normal space ([Megastructures](Design-Megastructures)).
+- The deep-space **Automata** guard caches; the **Precursor** hull lineage comes from salvage; ruined Maiora and Magna works sit in deep space and sometimes in normal space ([Megastructures](Design-Megastructures)).
 - Under the tech rework, the precursor chain is about twelve techs across the three ages with no ordinary way in: they are gated on clues and reached by insight (`07 D278 §5`, designed for T2).
 
 **Designed** (LR1, `docs/17 §3.4`; names are placeholders for the owner):
 
 | Layer | What it is |
 |---|---|
-| The Elders | an ancient, long-extinct civilisation; made the gigastructure ruins, the deep-space anomalies and the oldest relics |
+| The Elders | an ancient, long-extinct civilisation; made the Magna ruins, the deep-space anomalies and the oldest relics |
 | The Concord | a recent galactic polity that built the original Gateway network and the beacon corridors; fell in the Severance, whose cause stays ambiguous until late; its relics are the colony items and blueprints; its automata are the deep-space Automata faction |
 | The Successors | the present empires and pirates, the Concord's scattered heirs |
 | A dormant power | a Concord remnant state sealed in the abyss, which wakes as one of M20's crises |
@@ -137,7 +137,7 @@ FC4 built the hooks for the owner's 20–30 authored characters: a condition lis
 | TT1 | Tech tree to 1.0 | replaced by track T's rework (`07 D278`, T1–T5) | ≈ 1.2k |
 | LR1 | Lore and precursors | the eras, the codex, fragment chains, the dormant remnant hook into M20 | ≈ 1.0k (+ lore) |
 | DX1 | Discovery sites | the site registry, layered digs, planet condition ratings, anomalies re-pooled | ≈ 1.6k |
-| TF1 | Terraforming | the parameter model, projects with physical inputs, side effects, new kilostructures | ≈ 1.8k |
+| TF1 | Terraforming | the parameter model, projects with physical inputs, side effects, new Prima works | ≈ 1.8k |
 | PX1 | Planetary exploration | expedition teams, hex crawl, resource nodes, relics as items, surface dangers | ≈ 2.0k |
 
 Suggested order after the MVP: SP1 and CV1, then DX1 and LR1 together, then TT1, TF1 and PX1 (`docs/17 §4`). FC1–FC4's build order put CV1 first, but FC1 shipped on the four built axes with the rename left as "a content and string change on top" (`07 D214`).

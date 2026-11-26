@@ -1,8 +1,8 @@
 # Galaxy and hyperspace
 
-**Status:** built, as of 2026-11-23. Galaxy generation in M1, hyperspace and deep space in M8c (verified 2026-11-13); gateway trade links in M19a.
+**Status:** built, as of 2026-11-23. Galaxy generation in M1, hyperspace and deep space in M8c (verified 2026-11-13); lock trade links in M19a.
 
-The galaxy is generated as a pure function of the seed and the settings. There are no hyperlanes: star systems sit in hyperspace, an open and dangerous medium that fleets cross from any system to any other along routes planned at departure. Its weather (storms and currents) is fixed by the seed and the month, so travel is forecast exactly but never stable. Empires build beacon corridors that the shifting currents keep bending, and later techs add warp and buildable wormholes (Gateways). Beyond charted space, deep space grows more dangerous and more rewarding with distance.
+The galaxy is generated as a pure function of the seed and the settings. There are no hyperlanes: star systems sit in hyperspace, an open and dangerous medium that fleets cross from any system to any other along routes planned at departure. Its weather (storms and currents) is fixed by the seed and the month, so travel is forecast exactly but never stable. Empires build beacon corridors that the shifting currents keep bending, and later techs add warp and buildable wormholes (Hyperspace Locks). Beyond charted space, deep space grows more dangerous and more rewarding with distance.
 
 ## How it works
 
@@ -123,16 +123,16 @@ Megastructures add corridor holding: a Hyperspace Anchor stabilises every corrid
 | 1 | Beacon Engineering (engineering) | `BuildCorridor` |
 | 2 | Corridor Stabilisation (physics) | corridor decay −50% (`stabilisation` 0.5), break threshold 0.2 |
 | 3 | Warp Drive (physics) | a warp core, a utility component with power 6. A fleet whose every ship carries one charges 10 days at the system edge in place of the windup when its target is within 8 cells, then arrives the next day, ignoring drag, storms and intercepts (no footprints), at 3× the fuel of the straight distance's days |
-| 4 | Gateway Theory (physics) | a Gateway megastructure at an own starbase of size 6 or more |
+| 4 | Lock Theory (physics) | a Hyperspace Lock megastructure at an own starbase of size 6 or more |
 
-**Gateways** (`07 D46`, moved unchanged onto the megastructure model in S1):
+**Hyperspace Locks** (`07 D46`, moved unchanged onto the megastructure model in S1):
 
 - Cost 5,000 alloys and 800 parts from the starbase's market over 1,080 days; upkeep 30 credits and 4 parts.
-- A fleet in a Gateway system ordered to another own Gateway system crosses in 1 day after the windup.
-- A fleet may also cross between its own Gateway and the Gateway of an empire it holds open borders with, as between its own (`07 D114`).
-- **Trade links** (`07 D283`, built in M19a on 2026-11-23): an empire's own hub pair with usable Gateways at both hubs' systems (its own, or an open-borders partner's) takes the jump's days when quicker than the flown route, with no piracy and no loss on the jump, freight paid on the shorter days only, and closed by a blockade at either gate. A Gateway serves the hub at its own system. Pact routes and the Galactic Exchange's legs still fly.
+- A fleet in a Hyperspace Lock system ordered to another own Hyperspace Lock system crosses in 1 day after the windup.
+- A fleet may also cross between its own Hyperspace Lock and the Hyperspace Lock of an empire it holds open borders with, as between its own (`07 D114`).
+- **Trade links** (`07 D283`, built in M19a on 2026-11-23): an empire's own hub pair with usable Hyperspace Locks at both hubs' systems (its own, or an open-borders partner's) takes the jump's days when quicker than the flown route, with no piracy and no loss on the jump, freight paid on the shorter days only, and closed by a blockade at either gate. A Hyperspace Lock serves the hub at its own system. Pact routes and the Galactic Exchange's legs still fly.
 
-There are no natural wormholes: they were removed with the lanes, and Gateways are the buildable wormholes (`07 D46`).
+There are no natural wormholes: they were removed with the lanes, and Hyperspace Locks are the buildable wormholes (`07 D46`).
 
 ### Distance replaces hops
 
@@ -201,7 +201,7 @@ The hyperspace layer is one texel per cell (clouds violet, storms amber, corrido
 | No hyperlanes | A dangerous hyperspace crossed from any system to any other, as in Starsector; replaces the hyperlanes | 2026-11-12 | `07 D43` |
 | Simulation model | A coarse grid with monthly weather; routes planned at departure with arrival and hazards computed then (live storms with free flight rejected) | 2026-11-12 | `07 D43` |
 | Strategic structure | Built beacon corridors bent by shifting currents; higher techs counter with stable corridors, warp or wormholes | 2026-11-12 | `07 D43` |
-| Late travel | All three tiers plus buildable Gateways as a fourth tier | 2026-11-12 | `07 D43` |
+| Late travel | All three tiers plus buildable Hyperspace Locks as a fourth tier | 2026-11-12 | `07 D43` |
 | Deep space | Danger rising with depth; three deep factions; caches, stashes and rich fields with deep outposts; built in M8c | 2026-11-12 | `07 D45` |
 | Grid size | Cells of `d_min / 2` with a 12-cell margin (69 × 69 at Medium); replaces D43's "about 128 × 128 cells" | 2026-11-13 | `07 D46` |
 | Piracy regions | 6 × 6 cells; replaces D43's 16 × 16 | 2026-11-13 | `07 D46` |
@@ -210,23 +210,23 @@ The hyperspace layer is one texel per cell (clouds violet, storms amber, corrido
 | Freight | `amount × (days + 2 × 2.5) × 0.05`, half on corridor share; replaces D43's `amount × routeDays × 0.05` | 2026-11-13 | `07 D46` |
 | Storms slow | A storm adds its strength to the drag | 2026-11-13 | `07 D46` |
 | Clouds after empires | Clouds rolled after placement and moved off homes | 2026-11-13 | `07 D46` |
-| Natural wormholes | Removed; Gateways are the wormholes | 2026-11-13 | `07 D46` |
-| Allied Gateways | Read as open borders, since alliances were 1.0 at the time | 2026-11-14 | `07 D114` |
+| Natural wormholes | Removed; Hyperspace Locks are the wormholes | 2026-11-13 | `07 D46` |
+| Allied Hyperspace Locks | Read as open borders, since alliances were 1.0 at the time | 2026-11-14 | `07 D114` |
 | Hyperspace Anchor | Holds every corridor in its radius, not only its owner's | 2026-11-14 | `07 D78`, `DESIGN.md` |
-| Gateway trade | A route shortcut for an empire's own hub pairs, as the Mass Driver's | 2026-11-23 | `07 D283` |
+| Hyperspace Lock trade | A route shortcut for an empire's own hub pairs, as the Mass Driver's | 2026-11-23 | `07 D283` |
 
 ## Not yet built or still open
 
 - The `07 D46` call set (M8c's calls beyond the spec) is listed in `DESIGN.md` as still open for the owner's review.
 - The `01` passages that M8c converted from hops by ratio (5 route days per old hop, 2 cells per jump; listed at the end of `07 D46`) await the owner's eye.
 - `05 M8c`'s bench box (a route plan across Huge ≤ 200 µs × calibration, the monthly raster ≤ 2 ms, the full tick within 5% of M8b's) is unchecked: the full tick was 15–17% over M8b's, carried to P1.
-- No AI builds Gateways yet; the AI's megastructure advisor is M19c (`07 D283`).
+- No AI builds Hyperspace Locks yet; the AI's megastructure advisor is M19c (`07 D283`).
 - Storm suppression in the third age and storm-forecast techs are listed in the tech tree rework as future hooks (`07 D278`).
 
 ## Discrepancies noted
 
-- **Allied Gateways.** The `01 §2.1` tiers table still says "allied Gateways join with alliances (`05 M10`)". `07 D114` (2026-11-14) reads this as open borders, because alliances were 1.0 then. Alliances were built in M18a (merged 2026-11-23, `07 D279`). The sources do not say whether alliance members' Gateways now join as well as open-borders partners'.
-- **Commodity names in hyperspace rules.** `01 §2` step 5 and `01 §2.1` still name `crystal` deposits and `parts` in the corridor, Gateway and outpost bills, while `01 §7` records that crystal became rare ore and parts became components in E1 ("saves map them in place"). The numbers are unaffected; the names in `01 §2`–`§2.1` predate E1.
+- **Allied Hyperspace Locks.** The `01 §2.1` tiers table still says "allied Hyperspace Locks join with alliances (`05 M10`)". `07 D114` (2026-11-14) reads this as open borders, because alliances were 1.0 then. Alliances were built in M18a (merged 2026-11-23, `07 D279`). The sources do not say whether alliance members' Hyperspace Locks now join as well as open-borders partners'.
+- **Commodity names in hyperspace rules.** `01 §2` step 5 and `01 §2.1` still name `crystal` deposits and `parts` in the corridor, Hyperspace Lock and outpost bills, while `01 §7` records that crystal became rare ore and parts became components in E1 ("saves map them in place"). The numbers are unaffected; the names in `01 §2`–`§2.1` predate E1.
 
 ## Sources
 

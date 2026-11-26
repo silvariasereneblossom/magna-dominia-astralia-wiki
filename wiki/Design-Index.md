@@ -7,7 +7,7 @@ The GitHub Wiki also carries every page below joined into one document, `Design-
 ## The world
 
 - [Time and modes](Design-Time-and-modes) — the tick, the month, real time and turns, automation defaults
-- [Galaxy and hyperspace](Design-Galaxy-and-hyperspace) — generation, the hyperspace grid and its weather, corridors, warp, Gateways, deep space
+- [Galaxy and hyperspace](Design-Galaxy-and-hyperspace) — generation, the hyperspace grid and its weather, corridors, warp, Hyperspace Locks, deep space
 - [Starts and exploration](Design-Starts-and-exploration) — the pre-FTL opening, the Sol start, survey, sensors and fog
 - [Flight view](Design-Flight-view) — the persona's fleet in hyperspace
 

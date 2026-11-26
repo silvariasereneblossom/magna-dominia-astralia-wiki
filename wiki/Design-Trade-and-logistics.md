@@ -1,6 +1,6 @@
 # Trade and logistics
 
-**Status:** built, as of 2026-11-23. The network, dispatcher and piracy shipped in M5 and were moved onto the hyperspace grid in M8c; physical logistics in M8b; trade fleets, subsidies and embargo, the Galactic Exchange and smuggling in M17a–d (merged 2026-11-22 to 2026-11-23); gateway trade in M19a (merged 2026-11-23).
+**Status:** built, as of 2026-11-23. The network, dispatcher and piracy shipped in M5 and were moved onto the hyperspace grid in M8c; physical logistics in M8b; trade fleets, subsidies and embargo, the Galactic Exchange and smuggling in M17a–d (merged 2026-11-22 to 2026-11-23); lock trade in M19a (merged 2026-11-23).
 
 Goods move between markets only by shipment. Every empire runs a hub-and-spoke trade network over the hyperspace grid, and a daily dispatcher ships surplus to deficit along it, paying freight, transit days and losses to piracy, under each market's accessibility and import cap. Nothing teleports: a construction draws only from its own system, so a remote starbase upgrade waits for its alloys to arrive. On top of the abstract network sit commercial pacts with tariffs, physical trade convoys, subsidies and embargoes, a neutral Galactic Exchange, smuggling, and gateway shortcuts. Trade is drawn on the map, so the player sees where goods flow, where pirates feed and where a blockade has cut a route.
 
@@ -163,9 +163,9 @@ Built and merged 2026-11-23 (`07 D275` call 4 B):
 - **The persona.** With its transponder off it may trade where outlaw and sell contraband at the black-market price, untaxed; Smuggling grows by such trades. A catch also costs reputation.
 - **AI smugglers** (the owner chose B, AI empires too): on its planning day an AI runs up to two smuggling routes into the nearest rival market (rivalry or war) that bans a good one of its markets makes in surplus, when the margin beats the catch risk. It takes an idle freighter first, else one off a legal route. A caught AI smuggler costs −15 opinion for a year and a year's cooldown; the rival's patrol choice weighs detected smuggling beside piracy.
 
-### Gateway trade (M19a)
+### Hyperspace Lock trade (M19a)
 
-The owner's call of 2026-11-23 (`07 D283` call 1 A: a route shortcut, as the Mass Driver's), merged the same day. An empire's own hub pair jumps when both hubs' systems hold a Gateway it may use (its own, or an open-borders partner's, as fleets use them) and the jump is quicker than the flown route. The jump's leg takes the gateway's days, crosses no piracy region, loses nothing, has no corridor share, and is closed by a blockade at either gate. Freight is paid on the shorter days only. It is derived at route time, with no field rebuild when a gate is built or falls. Pact routes and the Exchange's legs still fly (their hub pairs are two empires'). No AI builds a Gateway yet (that waits for M19c).
+The owner's call of 2026-11-23 (`07 D283` call 1 A: a route shortcut, as the Mass Driver's), merged the same day. An empire's own hub pair jumps when both hubs' systems hold a Hyperspace Lock it may use (its own, or an open-borders partner's, as fleets use them) and the jump is quicker than the flown route. The jump's leg takes the gateway's days, crosses no piracy region, loses nothing, has no corridor share, and is closed by a blockade at either gate. Freight is paid on the shorter days only. It is derived at route time, with no field rebuild when a gate is built or falls. Pact routes and the Exchange's legs still fly (their hub pairs are two empires'). No AI builds a Hyperspace Lock yet (that waits for M19c).
 
 ### Map visualisation
 
@@ -191,11 +191,11 @@ The trade layer is part of MVP and is the pillar "trade is visible" (`01 §8.8`)
 | Supply resilience | AI site choice weighs food resilience and vetoes farmless unreachable sites (D), with a food buffer as the backstop (B); a food floor on the import cap (C) not chosen | 2026-11-21 | `07 D274` |
 | M17's six calls | Convoys physical only (capacity term dropped); insurance for every empire at 1.2 × expected loss; the Exchange a neutral unowned station with a 5% fee; smuggling with AI smugglers (B); three subsidy levels; embargo as `§8.7` with the AI using it | 2026-11-21 | `07 D275` |
 | Exchange as a pseudo pact partner | Members trade with the Exchange through step 5 over lossy legs (A), not an off-map spot market (B) | 2026-11-22 | `07 D275`, DESIGN |
-| Gateway trade | A route shortcut for an empire's own hub pairs (A), not gateway edges in the fields (B) | 2026-11-23 | `07 D283` |
+| Hyperspace Lock trade | A route shortcut for an empire's own hub pairs (A), not lock edges in the fields (B) | 2026-11-23 | `07 D283` |
 
 ## Not yet built or still open
 
-- **The AI builds no Gateways** until M19c, the AI's megastructure advisor (`07 D283`), so gateway trade appears only for the player in AI-only runs.
+- **The AI builds no Hyperspace Locks** until M19c, the AI's megastructure advisor (`07 D283`), so lock trade appears only for the player in AI-only runs.
 - **AI patrols against refused routes** (R2 of `07 D265`) are kept as a later design option.
 - **Narrowing each field's pact targets** (S2 of `07 D267`) would change pact routes and is not built.
 - **A walk cut in the dispatcher** (compacting spent sources, "C2 at this scale") was proposed by track M and not built (`07 D274`); dispatch leads the design-scale Huge worst tick (see [Architecture and performance](Design-Architecture-and-performance)).
