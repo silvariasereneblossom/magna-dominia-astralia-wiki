@@ -2625,9 +2625,9 @@ The strategic clock pauses while the player's battle waits, in both clocks; the 
 
 # Megastructures
 
-**Status:** built, as of 2026-11-26. The shared model with 8 Prima and 8 Maiora works and ruins in S1, the 5 Magna works and their ruins in S2 (both 2026-11-14), Hyperspace Lock trade links in M19a and the AI's orders for great works in T2 (both 2026-11-23); eleven works took the game's own names on 2026-11-26; `07 D277`'s first phase, O1 (2026-11-27), renamed the tiers to scales, raised the registry to 128 works, made five works produce goods at a place and removed the Nicoll-Dyson Lance; the rest of the new roster (O2–O6) is still to come.
+**Status:** built, as of 2026-11-26. The shared model with 8 Prima and 8 Maiora works and ruins in S1, the 5 Magna works and their ruins in S2 (both 2026-11-14), Hyperspace Lock trade links in M19a and the AI's orders for great works in T2 (both 2026-11-23); eleven works took the game's own names on 2026-11-26; `07 D277`'s first phase, O1 (2026-11-27), renamed the tiers to scales, raised the registry to 128 works, made five works produce goods at a place and removed the Nicoll-Dyson Lance; O2 (2026-11-27) added the 22 Prima and Maiora works below; O3–O6 are still to come.
 
-Megastructures, the great works, are large staged constructions in three scales: Prima, Maiora and Magna Opera Astralia. The first set was inspired by the Stellaris mod Gigastructural Engineering & More; the names and identities here are the game's own. Twenty of them are data in `megastructures.json`: they place by rules on stars, bodies or starbases, draw each stage's bill from their own system's markets like any construction, and act through modifier rows and a few code hooks (corridor anchors, yards, mass-driver links, habitats, the Hyperspace Lock). Ruined structures lie mostly in deep space and the abyss, guarded by automata, and can be restored at a quarter of their cost.
+Megastructures, the great works, are large staged constructions in three scales: Prima, Maiora and Magna Opera Astralia. The first set was inspired by the Stellaris mod Gigastructural Engineering & More; the names and identities here are the game's own. Forty-two of them are data in `megastructures.json`: they place by rules on stars, bodies or starbases, draw each stage's bill from their own system's markets like any construction, and act through modifier rows and a few code hooks (corridor anchors, yards, mass-driver links, habitats, the Hyperspace Lock). Ruined structures lie mostly in deep space and the abyss, guarded by automata, and can be restored at a quarter of their cost.
 
 ## How it works
 
@@ -2708,6 +2708,35 @@ Each Magna work is one per empire, with long staged builds and large upkeep (`13
 | Sun Dredge | a star | 2 × 3,500 alloys, 500 components, 200 machine tools | 720 | 20 cr (and 1 machine tool in the first stage) | per stage 80 gas a month at the system's starbase market, and 4 exotic matter more in the second, times the star's luminosity; +5% physics in the second (`07 D277`, `D292`) |
 
 Placement, bills, days and upkeep are from `data/content/megastructures.json`; the commodity names are E1's (parts became components, crystal rare ore, machinery machine tools; `07 D57`). `07 D79` gives the S1 ranges as Prima works 300–900 alloys, 30–120 components, 180–420 days, 2–5 credits upkeep, and Maiora works 1,200–3,000 alloys and 150–400 components a stage, 360–720 days a stage, 6–20 credits upkeep. Effects are first guesses for balance passes (`07 D79`, `D82`).
+
+### O2's Prima and Maiora works (`07 D277 §4`–`§5`, `§22`)
+
+| Work | Where | Stages | What it does |
+|---|---|---|---|
+| Heliostat Array | a star with light | 2 | energy 25 × lum a stage (under the Swarm section its tech opens) |
+| Flux Tether | a gas giant, no colony | 1 | energy 90; 1% a year to decay |
+| Mantle Tap | a molten body, no colony | 1 | energy 60 and rare ore 2; 2% a year to ruin; the Core Auger is built on it and replaces it |
+| Accumulator Vault | a starbase of size 2 | 2 | the market's energy storage × 4, then × 8 |
+| Cometary Icehouse | a frozen body or a belt, no colony | 1 | gas 12 |
+| Skyhook | a planet with the builder's colony | 1 | accessibility +0.1 on that colony |
+| Granary Ring | a body with the builder's colony | 1 | food at that market stops spoiling, and the food buffer holds 180 days |
+| Soletta | a planet with the builder's colony | 1 | housing +2, growth +10% |
+| Deepwatch | a starbase of size 2 | 1 | sensor range +4 cells; the deep sites within 4 found |
+| Breaker's Yard | a starbase of size 3 | 1 | reverse engineering there, not only at the capital |
+| Tempest Vane | a starbase of size 2 | 1 | storms within 2 cells at half strength (a Collider there is sheltered) |
+| Careening Dock | a starbase of size 2 | 1 | a yard up to destroyers, repair × 1.5 |
+| Praetorium | a starbase of size 3; one an empire | 2 | the persona's fleet repairs faster, then one officer more |
+| Radiant Causeway | a starbase of size 3, paired | 1 | up to 2,000 energy a month to its pair over a standing corridor, 15% lost |
+| Current Mill | a starbase of size 3 | 2 | energy 1,200 × the current's strength at its cell a stage |
+| Trunkway | a starbase of size 3, paired | 1 | the corridor between the pair never drifts |
+| Giant's Sieve | a gas giant, no colony | 2 | gas 40 and crude fuel 20 a stage |
+| Exotic Condenser | a neutron star or pulsar | 2 | exotic matter 6 a stage; 3% a year to decay |
+| Tabularium | a starbase of size 4; one an empire | 2 | admin capacity +20, then civil upkeep −10% |
+| Aegis Shell | a starbase of size 4 | 2 | 12 batteries and piracy security +0.15 |
+| Snare | a starbase of size 3 | 1 | drag +1 within 3 cells |
+| Cenotaph | a body with the builder's colony | 1 | one for each dead persona: the heir gains a quarter of its renown; stability +5 |
+
+The AI builds all but the paired works, the persona works and the Breaker's Yard, which wait for O6's advisor; it orders research works ahead of works of a kind it holds none of. Not yet built: the Cloudhold's gas districts (it needs a vent rule for habitats), the Breaker's Yard's scrapping and the Soletta's two upgrades (with TF1).
 
 ### The game's own names (2026-11-26)
 
