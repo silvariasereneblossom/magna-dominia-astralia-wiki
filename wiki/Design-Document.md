@@ -2625,9 +2625,9 @@ The strategic clock pauses while the player's battle waits, in both clocks; the 
 
 # Megastructures
 
-**Status:** built, as of 2026-11-26. The shared model with 8 Prima and 8 Maiora works and ruins in S1, the 5 Magna works and their ruins in S2 (both 2026-11-14), Hyperspace Lock trade links in M19a and the AI's orders for great works in T2 (both 2026-11-23); eleven works took the game's own names on 2026-11-26; `07 D277`'s first phase, O1 (2026-11-27), renamed the tiers to scales, raised the registry to 128 works, made five works produce goods at a place and removed the Nicoll-Dyson Lance; O2 (2026-11-27) added the 22 Prima and Maiora works below; O3–O6 are still to come.
+**Status:** built, as of 2026-11-26. The shared model with 8 Prima and 8 Maiora works and ruins in S1, the 5 Magna works and their ruins in S2 (both 2026-11-14), Hyperspace Lock trade links in M19a and the AI's orders for great works in T2 (both 2026-11-23); eleven works took the game's own names on 2026-11-26; `07 D277`'s first phase, O1 (2026-11-27), renamed the tiers to scales, raised the registry to 128 works, made five works produce goods at a place and removed the Nicoll-Dyson Lance; O2 (2026-11-27) added the 22 Prima and Maiora works below; O3 (2026-11-28) added six Magna works and the Brain's augur; O4–O6 are still to come.
 
-Megastructures, the great works, are large staged constructions in three scales: Prima, Maiora and Magna Opera Astralia. The first set was inspired by the Stellaris mod Gigastructural Engineering & More; the names and identities here are the game's own. Forty-two of them are data in `megastructures.json`: they place by rules on stars, bodies or starbases, draw each stage's bill from their own system's markets like any construction, and act through modifier rows and a few code hooks (corridor anchors, yards, mass-driver links, habitats, the Hyperspace Lock). Ruined structures lie mostly in deep space and the abyss, guarded by automata, and can be restored at a quarter of their cost.
+Megastructures, the great works, are large staged constructions in three scales: Prima, Maiora and Magna Opera Astralia. The first set was inspired by the Stellaris mod Gigastructural Engineering & More; the names and identities here are the game's own. Forty-eight of them are data in `megastructures.json`: they place by rules on stars, bodies or starbases, draw each stage's bill from their own system's markets like any construction, and act through modifier rows and a few code hooks (corridor anchors, yards, mass-driver links, habitats, the Hyperspace Lock). Ruined structures lie mostly in deep space and the abyss, guarded by automata, and can be restored at a quarter of their cost.
 
 ## How it works
 
@@ -2737,6 +2737,19 @@ Placement, bills, days and upkeep are from `data/content/megastructures.json`; t
 | Cenotaph | a body with the builder's colony | 1 | one for each dead persona: the heir gains a quarter of its renown; stability +5 |
 
 The AI builds all but the paired works, the persona works and the Breaker's Yard, which wait for O6's advisor; it orders research works ahead of works of a kind it holds none of. Not yet built: the Cloudhold's gas districts (it needs a vent rule for habitats), the Breaker's Yard's scrapping and the Soletta's two upgrades (with TF1).
+
+### O3's Magna works (`07 D277 §6`, `§23`)
+
+| Work | Where | Stages | What it does |
+|---|---|---|---|
+| Second Sky | a planet of size 12+ with the builder's colony; two an empire | 4 | each quadrant: housing +10, a building slot, City and Industrial caps +25%; the last: colony pops −10% |
+| Matter Loom | a size-5 starbase with the builder's Swarm or Sphere in the system | 3 | energy 4,000 a stage for alloys 150, rare metals 50 and components 20 |
+| Halcyon Engine | a size-5 starbase; two an empire | 2 | storms at a quarter within 6, then 10 cells, and corridor drift halved there, for everyone |
+| Giant's Hearth | a gas giant, no colony; two an empire | 3 | a habitat, housing +12 a stage |
+| Pharos | a deep cell (depth 6–9), raised by a construction ship; one an empire | 3 | an anchor of 4, 6, then 8 cells (security 1.0), a dock for its owner's fleets; outposts in its radius ship to the nearest market |
+| Stormcaller | a size-5 starbase; one an empire | 2 | a weapon: a year's storm at a cell within 20, every 360 days, for 400 charged cells; −40 opinion with everyone in contact |
+
+The Matrioshka Brain now draws energy 3,000 a stage and makes its empire's first research goal a tech in use. A Hyperspace Lock draws energy at its market for each crossing and is shut when that market is empty; a Cloudhold's deck has gas vents from its giant's gas. The AI leaves the Stormcaller; neither the Stormcaller's order nor the Pharos has a UI yet.
 
 ### The game's own names (2026-11-26)
 
